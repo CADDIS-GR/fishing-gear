@@ -22,6 +22,11 @@ fishing-gear
     * 님핑 낚시에서 대상어의 활성도에 맞춰 아주 예민하게 수심층을 공략할 때 필수적인 소품입니다.
 * **사용 팁:** 물기가 없는 상태에서 티펫에 문지르듯 붙여주면 현장에서도 아주 빠르게 채비를 변경할 수 있습니다.
 
+
+### ✨ SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line
+* **[📍 상세 리뷰 및 활용 가이드 보기](https://caddis-gr.github.io/fishing-gear/SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line .html)**
+  * Sa사의 특별한 라인을 소개합니다.
+
 ---
 
 ## 🎣 낚시 장비 카테고리 (준비 중)
