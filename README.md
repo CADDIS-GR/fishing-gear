@@ -12,7 +12,7 @@
   - [✨ 상세 리뷰 및 타잉 가이드](https://caddis-gr.github.io/web-docs2/)
   - *특징: 빛 반사 특징이 뛰어난 특수 스레드*
 
-  * ****Rio Parabolic Sink Line
+* ****Rio Parabolic Sink Line
   - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/Parabolic_Sink_Line.html)
   - *특징:Rio사의 U프로파일의 풀싱킹 라인 소개*
 
