@@ -14,6 +14,14 @@ fishing-gear
 * **[📍 상세 리뷰 및 활용 가이드 보기](https://caddis-gr.github.io/fishing-gear/251224-TMC_Prismatic_Thread.html)**
   * 티엠코(TMC)의 특수 스레드, 빛 반사 특징과 실제 타잉 시 주의사항 정리
 
+
+#### ✨ Loon Outdoors: Deep Soft Weight (딥 소프트 웨이트)
+* **파일:** [📄 251219-Loon_Outdoors_Deep_Soft_Weight.html](https://caddis-gr.github.io/fishing-gear/251219-Loon_Outdoors_Deep_Soft_Weight.html)
+* **특징:** 환경친화적인 비독성 텅스텐 점토 타입의 웨이트입니다. 
+* **용도:** * 스플릿샷(조합납) 대신 티펫에 원하는 만큼 떼어 붙여 미세한 침강 속도 조절 가능.
+    * 님핑 낚시에서 대상어의 활성도에 맞춰 아주 예민하게 수심층을 공략할 때 필수적인 소품입니다.
+* **사용 팁:** 물기가 없는 상태에서 티펫에 문지르듯 붙여주면 현장에서도 아주 빠르게 채비를 변경할 수 있습니다.
+
 ---
 
 ## 🎣 낚시 장비 카테고리 (준비 중)
