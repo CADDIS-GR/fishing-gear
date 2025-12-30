@@ -16,6 +16,11 @@
   - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/Parabolic_Sink_Line.html)
   - *특징:Rio사의 U프로파일의 풀싱킹 라인 소개*
 
+* ****낚시.. 그 태도를 바꾸는 장비
+  - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/Paradigm_Bouglé_Gold.html)
+  - *T&T Paradigm 590-4 + rio elite gold classic wf5f + Hardy Bouglé 3 1/4
+  
+
   
 
 ## 🎣 낚시 장비 카테고리 (준비 중)
