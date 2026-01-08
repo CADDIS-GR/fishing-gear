@@ -31,7 +31,7 @@
 
 
 * ****Scientific Anglers Sonar Sink 25 Cold(EN)
-  - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/260108_sonar_sink_manual(EN).html)
+  - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/260108_sonar_sink_manual_EN.html)
   - *COLD / 25ft HEAD / DIRTY / DEEP LINING 
 
 
