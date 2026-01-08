@@ -19,6 +19,10 @@
 * ****낚시.. 그 태도를 바꾸는 장비
   - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/Paradigm_Bouglé_Gold.html)
   - *T&T Paradigm 590-4 + rio elite gold classic wf5f + Hardy Bouglé 3 1/4
+
+* ****Scientific Anglers Sonar Sink 25 Cold
+  - [📄 상세 리뷰 및 활용 가이드](https://caddis-gr.github.io/fishing-gear/260108_sonar_sink_manual.html)
+  - *COLD / 25ft HEAD / DIRTY / DEEP LINING 
   
 
   
