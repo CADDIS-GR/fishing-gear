@@ -14,14 +14,14 @@
             box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
         }
         .hero-header {
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/CADDIS-GR/fishing-gear/main/assets/images/hardy-reel.jpg');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/hardy-reel.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            min-height: 400px;
+            min-height: 450px;
         }
         .hero-fallback {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
         }
     </style>
 </head>
@@ -33,23 +33,21 @@
                 <div class="flex items-center gap-4 mb-6">
                     <span class="text-6xl drop-shadow-lg">🎣</span>
                     <div>
-                        <h1 class="text-5xl font-bold drop-shadow-lg">타잉 소품 및 장비 리뷰</h1>
-                        <p class="text-xl mt-3 drop-shadow-md">플라이 낚시 타잉 장비에 대한 상세 리뷰 모음</p>
+                        <h1 class="text-5xl font-bold drop-shadow-lg mb-2">타잉 소품 및 장비 리뷰</h1>
+                        <p class="text-xl drop-shadow-md">플라이 낚시 타잉 장비에 대한 상세 리뷰 모음</p>
                     </div>
                 </div>
                 <div class="flex gap-3 mt-6">
                     <a href="https://github.com/CADDIS-GR/fishing-gear" target="_blank" 
-                       class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition border border-white/30 font-medium">
+                       class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition border border-white/30 font-medium shadow-lg">
                         📁 GitHub 저장소
                     </a>
                     <a href="#reviews" 
-                       class="px-6 py-3 bg-white text-slate-800 rounded-lg hover:bg-slate-100 transition font-medium">
+                       class="px-6 py-3 bg-white text-slate-800 rounded-lg hover:bg-slate-100 transition font-medium shadow-lg">
                         📖 리뷰 보기
                     </a>
                 </div>
             </div>
-            <!-- Overlay gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/30 to-purple-900/30"></div>
         </header>
 
         <!-- Search -->
@@ -61,19 +59,19 @@
 
         <!-- Stats -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
                 <div class="text-3xl font-bold text-blue-600">7</div>
                 <div class="text-slate-600 mt-1">전체 리뷰</div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
                 <div class="text-3xl font-bold text-green-600">4</div>
                 <div class="text-slate-600 mt-1">브랜드</div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
                 <div class="text-3xl font-bold text-purple-600">⭐ 4.9</div>
                 <div class="text-slate-600 mt-1">평균 평점</div>
             </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center">
+            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
                 <div class="text-3xl font-bold text-orange-600">2026</div>
                 <div class="text-slate-600 mt-1">최근 업데이트</div>
             </div>
