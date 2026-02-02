@@ -23,6 +23,12 @@
 
 ## 📦 리뷰 목록
 
+### Vision
+- **Ultimate Finesse** - Vision Onki 3100-4 + Hardy Marquis LWT 조합 ⭐⭐⭐⭐⭐
+
+### Paradigm
+- **Bouglé Gold** - T&T Paradigm 590-4 + Hardy Bouglé 3 1/4 ⭐⭐⭐⭐⭐
+
 ### Loon Outdoors
 - **Deep Soft Weight** - 미세 수정 조절용 텅스텐 점토 웨이트 ⭐⭐⭐⭐⭐
 
@@ -37,9 +43,6 @@
 ### Rio
 - **Parabolic Sink Line** - U프로파일의 플라잉 라인 소재 ⭐⭐⭐⭐⭐
 
-### Paradigm
-- **Bouglé Gold** - T&T Paradigm 590-4 + Hardy Bouglé 3 1/4 ⭐⭐⭐⭐⭐
-
 ## 🗂️ 폴더 구조
 
 ```
@@ -47,13 +50,14 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 └── reviews/            # 리뷰 HTML 파일들
+    ├── Vision_Onki_Ultimate_Finesse.html
+    ├── Paradigm_Bouglé_Gold.html
     ├── 251219-Loon_Outdoors_Deep_Soft_Weight.html
     ├── 251224-TMC_Prismatic_Thread.html
     ├── 260108_sonar_sink_manual.html
     ├── 260108_sonar_sink_manual_EN.html
     ├── SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line.html
-    ├── Parabolic_Sink_Line.html
-    └── Paradigm_Bouglé_Gold.html
+    └── Parabolic_Sink_Line.html
 ```
 
 ## 🚀 로컬에서 실행하기
@@ -125,10 +129,21 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 7개
-- **브랜드 수**: 4개
+- **전체 리뷰**: 8개
+- **브랜드 수**: 5개
 - **평균 평점**: ⭐ 4.9/5.0
 - **최근 업데이트**: 2026년 1월
+
+## 🌟 최신 리뷰
+
+### Vision Onki - Ultimate Finesse (2026.01)
+부드럽고 섬세한 피네스피싱의 완성. Vision Onki 3100-4 (10ft #3) + Hardy Marquis LWT #4 조합으로 소프트 해클 웨트와 마이크로 님핑에 최적화된 세팅입니다.
+
+**주요 특징:**
+- 🎯 10피트 #3 시스템의 정교함
+- 🎣 Rio Elite Technical Trout 라인과의 완벽한 조화
+- ✨ 라이트박스 이미지 뷰어 기능
+- 💫 모던과 클래식의 만남
 
 ## 🤝 기여하기
 
