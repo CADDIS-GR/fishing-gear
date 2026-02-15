@@ -23,6 +23,9 @@
 
 ## 📦 리뷰 목록
 
+### RIO
+- **Elite Technical Trout WF4F** - 가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 조합 ⭐⭐⭐⭐⭐
+
 ### Vision
 - **Ultimate Finesse** - Vision Onki 3100-4 + Hardy Marquis LWT 조합 ⭐⭐⭐⭐⭐
 
@@ -50,6 +53,7 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 └── reviews/            # 리뷰 HTML 파일들
+    ├── RIO_Elite_Technical_Trout_WF4F.html
     ├── Vision_Onki_Ultimate_Finesse.html
     ├── Paradigm_Bouglé_Gold.html
     ├── 251219-Loon_Outdoors_Deep_Soft_Weight.html
@@ -129,21 +133,21 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 8개
-- **브랜드 수**: 5개
+- **전체 리뷰**: 9개
+- **브랜드 수**: 6개
 - **평균 평점**: ⭐ 4.9/5.0
-- **최근 업데이트**: 2026년 1월
+- **최근 업데이트**: 2026년 2월
 
 ## 🌟 최신 리뷰
 
-### Vision Onki - Ultimate Finesse (2026.01)
-부드럽고 섬세한 피네스피싱의 완성. Vision Onki 3100-4 (10ft #3) + Hardy Marquis LWT #4 조합으로 소프트 해클 웨트와 마이크로 님핑에 최적화된 세팅입니다.
+### RIO Elite Technical Trout WF4F (2026.02)
+가볍지만 멀리 날아가고, 턴오버는 예술이다. Vision Onki 3100-4 (10ft #3) + RIO Elite Technical Trout WF4F 조합으로 마이크로 님핑과 드라이 플라이 프레젠테이션에 최적화된 피네스 세팅입니다.
 
 **주요 특징:**
-- 🎯 10피트 #3 시스템의 정교함
-- 🎣 Rio Elite Technical Trout 라인과의 완벽한 조화
-- ✨ 라이트박스 이미지 뷰어 기능
-- 💫 모던과 클래식의 만남
+- 🎯 49ft 롱 헤드의 탁월한 라인 컨트롤 & 멘딩 성능
+- 🎣 Vision Onki 3100-4와의 완벽한 궁합
+- ✨ 예술적인 턴오버 — 리더 끝까지 에너지 완벽 전달
+- 💫 마이크로 님핑 & 드라이 플라이 모두 최적
 
 ## 🤝 기여하기
 
