@@ -207,6 +207,9 @@
                         <button onclick="switchTab('control')" id="tab-control" class="px-6 py-3 text-sm font-medium text-stone-400 hover:text-stone-600 transition-colors whitespace-nowrap">
                             라인 컨트롤
                         </button>
+                        <button onclick="switchTab('chironomid')" id="tab-chironomid" class="px-6 py-3 text-sm font-medium text-stone-400 hover:text-stone-600 transition-colors whitespace-nowrap">
+                            키로노미드 & 스틸워터
+                        </button>
                     </div>
 
                     <!-- Tab Content -->
@@ -247,6 +250,22 @@
                                     <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 49ft 롱 헤드를 이용한 탁월한 멘딩(Mending) 성능</li>
                                     <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 먼 거리에서도 즉각적이고 정확한 훅셋 가능</li>
                                     <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 복잡한 물살 위에서도 드래그 프리(Drag-free) 유지 용이</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="content-chironomid" class="hidden bg-stone-50 p-6 rounded-2xl border border-stone-100 min-h-[250px]">
+                        <div class="flex items-start gap-4">
+                            <div class="bg-white p-3 rounded-lg shadow-sm text-stone-600"><i class="fas fa-water text-xl"></i></div>
+                            <div>
+                                <h4 class="text-lg font-bold text-stone-800 mb-2">관리형낚시터(저수지) 특화 운용법</h4>
+                                <p class="text-stone-500 text-xs mb-3">잔잔한 수면의 저수지에서 키로노미드 패턴과 함께 RIO Elite Technical Trout의 진가를 발휘하는 운용법입니다.</p>
+                                <ul class="space-y-3 text-stone-600 text-sm">
+                                    <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 인디케이터 님핑 — 키로노미드 퓨파를 원하는 수심에 정확히 서스펜드</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 슬로우 리트리브 — 49ft 롱 헤드로 라인 처짐 없이 느린 액션 유지</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 겨울·초봄 저활성 송어 공략 — 섬세한 턴오버로 최소한의 수면 교란</li>
+                                    <li class="flex items-center"><i class="fas fa-check text-[#d4a373] mr-2"></i> 잔잔한 저수지 수면에서 라인 시인성 극대화 — SureFire 트라이컬러 시스템 활용</li>
                                 </ul>
                             </div>
                         </div>
@@ -451,7 +470,7 @@
 
         // --- Interaction: Tab Switcher ---
         function switchTab(tabId) {
-            ['nymph', 'dry', 'control'].forEach(id => {
+            ['nymph', 'dry', 'control', 'chironomid'].forEach(id => {
                 document.getElementById(`content-${id}`).classList.add('hidden');
                 document.getElementById(`tab-${id}`).classList.remove('active-tab', 'text-stone-800');
                 document.getElementById(`tab-${id}`).classList.add('text-stone-400');
