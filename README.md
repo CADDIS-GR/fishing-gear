@@ -24,6 +24,7 @@
 ## 📦 리뷰 목록
 
 ### RIO
+- **Elite Sub-Surface CamoLux WF5I** - 카모 패턴 인터미디어트 싱킹 라인. 맑은 수질 중층 스텔스 공략 ⭐⭐⭐⭐⭐
 - **Elite Technical Trout WF4F** - 가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 조합 ⭐⭐⭐⭐⭐
 
 ### Vision
@@ -53,6 +54,7 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 └── reviews/            # 리뷰 HTML 파일들
+    ├── RIO_Elite_CamoLux_WF5I_Review.html
     ├── RIO_Elite_Technical_Trout_WF4F.html
     ├── Vision_Onki_Ultimate_Finesse.html
     ├── Paradigm_Bouglé_Gold.html
@@ -133,21 +135,33 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 9개
+- **전체 리뷰**: 10개
 - **브랜드 수**: 6개
 - **평균 평점**: ⭐ 4.9/5.0
-- **최근 업데이트**: 2026년 2월
+- **최근 업데이트**: 2026년 3월
 
 ## 🌟 최신 리뷰
 
+### RIO Elite Sub-Surface CamoLux WF5I (2026.03)
+카모 패턴으로 물속에서 라인의 존재감을 낮추는 인터미디어트 싱킹 라인. Scott Centric 690-4 + CamoLux WF5I 조합으로 맑은 수질 중층 스텔스 공략에 특화된 세팅입니다.
+
+**주요 특징:**
+- 🎯 1.5~2ips 인터미디어트 싱킹 — 수심 2~6ft 중층 정밀 공략
+- 🌿 카모 컬러링(올리브/다크그린) — 맑은 수질 스텔스 효과
+- 🔗 ConnectCore Plus 저신축 코어 — 중층에서도 어신 감지 용이
+- 🎣 30ft 짧은 헤드 — 최소 폴스 캐스팅으로 빠른 재투척 가능
+- 📍 Hang Marker(20ft) — Hang & Re-cast 타이밍 시각적 확인
+
+---
+
 ### RIO Elite Technical Trout WF4F (2026.02)
-가볍지만 멀리 날아가고, 턴오버는 예술이다. Vision Onki 3100-4 (10ft #3) + RIO Elite Technical Trout WF4F 조합으로 마이크로 님핑과 드라이 플라이 프레젠테이션에 최적화된 피네스 세팅입니다.
+가볍지만 멀리 날아가고, 턴오버는 예술이다. Vision Onki 3100-4 (10ft #3) + RIO Elite Technical Trout WF4F 조합으로 마이크로 님핑과 드라이 플라이 프레젠테이션에 적합한 피네스 세팅입니다.
 
 **주요 특징:**
 - 🎯 49ft 롱 헤드의 탁월한 라인 컨트롤 & 멘딩 성능
-- 🎣 Vision Onki 3100-4와의 완벽한 궁합
-- ✨ 예술적인 턴오버 — 리더 끝까지 에너지 완벽 전달
-- 💫 마이크로 님핑 & 드라이 플라이 모두 최적
+- 🎣 Vision Onki 3100-4와의 좋은 궁합
+- ✨ 예술적인 턴오버 — 리더 끝까지 에너지 전달
+- 💫 마이크로 님핑 & 드라이 플라이 모두 적합
 
 ## 🤝 기여하기
 
