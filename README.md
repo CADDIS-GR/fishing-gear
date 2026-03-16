@@ -23,6 +23,9 @@
 
 ## 📦 리뷰 목록
 
+### 현장 가이드
+- **싱킹 플라이라인 드레싱 완전정복** - 종일 싱킹라인 사용 시 발생하는 뻣뻣함 해결 가이드. 립밤부터 303 Aerospace까지 현실적인 드레싱 솔루션 ⭐⭐⭐⭐⭐
+
 ### RIO
 - **Elite Sub-Surface CamoLux WF5I** - 카모 패턴 인터미디어트 싱킹 라인. 맑은 수질 중층 스텔스 공략 ⭐⭐⭐⭐⭐
 - **Elite Technical Trout WF4F** - 가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 조합 ⭐⭐⭐⭐⭐
@@ -54,6 +57,7 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 └── reviews/            # 리뷰 HTML 파일들
+    ├── flyline_dressing_guide.html
     ├── RIO_Elite_CamoLux_WF5I_Review.html
     ├── RIO_Elite_Technical_Trout_WF4F.html
     ├── Vision_Onki_Ultimate_Finesse.html
@@ -135,12 +139,23 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 10개
+- **전체 리뷰**: 11개
 - **브랜드 수**: 6개
 - **평균 평점**: ⭐ 4.9/5.0
 - **최근 업데이트**: 2026년 3월
 
 ## 🌟 최신 리뷰
+
+### 싱킹 플라이라인 드레싱 완전정복 (2026.03) 🆕
+종일 싱킹라인만 쓰다 보면 반나절 후 라인이 뻣뻣해진다. 전용 드레싱은 구하기 어렵고, 그래서 찾아낸 현실적인 해답들. 립밤(0원)부터 303 Aerospace Protectant(~17,000원), Loon Sink Fast(직구)까지 — 소수성 실리콘 원리와 함께 싱킹라인 드레싱의 모든 것을 정리한 현장 가이드.
+
+**핵심 결론:**
+- 🫦 **립밤** — 풀 싱킹라인 현장 즉석 드레싱 (비용 0원, 주머니 상시 비치)
+- 🚗 **303 Aerospace Protectant** — 플로팅/싱크팁 라인 관리 (국내 구매 ~17,000원)
+- 🏆 **Loon Sink Fast** — 싱킹라인 전용 정품 (직구 끼워넣기 ~$9)
+- ⛔ **Armor All** — 절대 사용 금지 (PVC 코팅 장기 손상)
+
+---
 
 ### RIO Elite Sub-Surface CamoLux WF5I (2026.03)
 카모 패턴으로 물속에서 라인의 존재감을 낮추는 인터미디어트 싱킹 라인. Scott Centric 690-4 + CamoLux WF5I 조합으로 맑은 수질 중층 스텔스 공략에 특화된 세팅입니다.
