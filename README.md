@@ -23,6 +23,12 @@
 
 ## 📦 리뷰 목록
 
+### SA SONAR
+- **Sink 25 Cold Manual v2** 🆕 - 한터지 바닥권 풀싱킹 서브 라인으로 재정의. 10~12m 단거리 투입 프로토콜 + 정지수 수렴 분석 ⭐⭐⭐⭐⭐
+- **Sink Manual (KR)** - SA SONAR 싱크 라인 매뉴얼 (한글) ⭐⭐⭐⭐⭐
+- **Sink Manual (EN)** - SA SONAR 싱크 라인 매뉴얼 (영문) ⭐⭐⭐⭐⭐
+- **STILLWATER CLEAR EMERGER TIP** - 특별한 이머저 전용 라인 소재 ⭐⭐⭐⭐⭐
+
 ### 현장 가이드
 - **싱킹 플라이라인 드레싱 완전정복** - 종일 싱킹라인 사용 시 발생하는 뻣뻣함 해결 가이드. 립밤부터 303 Aerospace까지 현실적인 드레싱 솔루션 ⭐⭐⭐⭐⭐
 
@@ -42,11 +48,6 @@
 ### TMC
 - **Prismatic Thread** - 빛 반사 특징이 뛰어난 특수 스레드 ⭐⭐⭐⭐
 
-### SA SONAR
-- **Sink Manual (KR)** - SA SONAR 싱크 라인 매뉴얼 (한글) ⭐⭐⭐⭐⭐
-- **Sink Manual (EN)** - SA SONAR 싱크 라인 매뉴얼 (영문) ⭐⭐⭐⭐⭐
-- **STILLWATER CLEAR EMERGER TIP** - 특별한 이머저 전용 라인 소재 ⭐⭐⭐⭐⭐
-
 ### Rio
 - **Parabolic Sink Line** - U프로파일의 플라잉 라인 소재 ⭐⭐⭐⭐⭐
 
@@ -57,6 +58,7 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 └── reviews/            # 리뷰 HTML 파일들
+    ├── sink25cold_manual_v2.html          # 🆕 Sink 25 Cold Manual v2
     ├── flyline_dressing_guide.html
     ├── RIO_Elite_CamoLux_WF5I_Review.html
     ├── RIO_Elite_Technical_Trout_WF4F.html
@@ -139,14 +141,27 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 11개
+- **전체 리뷰**: 12개
 - **브랜드 수**: 6개
 - **평균 평점**: ⭐ 4.9/5.0
 - **최근 업데이트**: 2026년 3월
 
 ## 🌟 최신 리뷰
 
-### 싱킹 플라이라인 드레싱 완전정복 (2026.03) 🆕
+### Sink 25 Cold Manual v2 (2026.03) 🆕
+한터낚시터 3/14 세션 51마리 데이터를 바탕으로 Sonar Sink 25 Cold의 포지션을 전면 재정의. "버티컬 지깅 독립 운용"(v1)에서 **바닥권 풀싱킹 체계의 서브 라인**으로 진화. 정지수에서 플로팅 러닝라인도 결국 침하된다는 수렴 메커니즘 분석, 10~12m 단거리 + 추가 카운트 투입 프로토콜, 그리고 제조사(SA)와의 문의를 통해 확인한 "의도된 용도 vs 낚시대장의 실전 용도" 비교까지 담았습니다.
+
+**핵심 변경점 (v1 → v2):**
+- 📍 **포지션**: 독립 운용 → Titan 3D 메인 운용 후 발앞 집중 패턴 확인 시 투입
+- 🎯 **캐스팅**: 장거리 → 10~12m 단거리 + 추가 카운트
+- 📐 **근거**: 정지수 수렴 메커니즘 + 수직 상승각 기하학적 분석
+- 😄 **에피소드**: SA 공식 답변 — "이 라인은 보팅 호수 협곡 지깅용입니다"
+
+> 참고 (v1): [260108_sonar_sink_manual.html](https://caddis-gr.github.io/fishing-gear/reviews/260108_sonar_sink_manual.html)
+
+---
+
+### 싱킹 플라이라인 드레싱 완전정복 (2026.03)
 종일 싱킹라인만 쓰다 보면 반나절 후 라인이 뻣뻣해진다. 전용 드레싱은 구하기 어렵고, 그래서 찾아낸 현실적인 해답들. 립밤(0원)부터 303 Aerospace Protectant(~17,000원), Loon Sink Fast(직구)까지 — 소수성 실리콘 원리와 함께 싱킹라인 드레싱의 모든 것을 정리한 현장 가이드.
 
 **핵심 결론:**
