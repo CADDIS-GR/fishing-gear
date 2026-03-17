@@ -710,10 +710,115 @@
     </div>
   </div>
 
-  <!-- 06 현장 평가 -->
+  <!-- 06 채비 운용 메커니즘 -->
   <div class="section s6">
     <div class="section-header">
       <span class="section-num">06</span>
+      <span class="section-title">채비 운용 메커니즘</span>
+      <div class="section-line"></div>
+    </div>
+    <style>
+      .mech-grid { display: grid; grid-template-columns: 1fr 24px 1fr 24px 1fr; gap: 0; align-items: start; }
+      .mech-diagram { position: relative; height: 280px; margin: 0 12px; border-left: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+      .mech-water { position: absolute; top: 0; left: 0; right: 0; border-top: 1.5px dashed #3a6b8a; }
+      .mech-water-lbl { position: absolute; top: -18px; left: 4px; font-size: 10px; color: #3a6b8a; font-family: monospace; }
+      .mech-bottom-lbl { position: absolute; bottom: -18px; left: 4px; font-size: 10px; color: #5C6B3A; font-family: monospace; }
+      .mech-card { margin: 0 12px; padding: 14px 16px; border-radius: 0 0 8px 8px; border: 1px solid var(--border); border-top: none; background: var(--white); }
+      .mech-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--orange); margin-bottom: 6px; }
+      .mech-title { font-size: 14px; font-weight: 600; color: var(--text); margin-bottom: 8px; line-height: 1.4; }
+      .mech-desc { font-size: 12px; color: var(--muted); line-height: 1.7; }
+      .mech-tag { display: inline-block; font-size: 11px; padding: 2px 10px; border-radius: 20px; margin-top: 8px; font-family: 'DM Mono', monospace; }
+      .mech-tag-yellow { background: rgba(200,176,64,0.12); color: #c8b040; border: 1px solid rgba(200,176,64,0.3); }
+      .mech-tag-green  { background: rgba(92,107,58,0.12);  color: var(--olive); border: 1px solid rgba(92,107,58,0.3); }
+      .mech-tag-blue   { background: rgba(74,144,184,0.12); color: #4a90b8; border: 1px solid rgba(74,144,184,0.3); }
+      .mech-arrow { display: flex; align-items: center; justify-content: center; padding-top: 130px; color: var(--border); font-size: 20px; }
+    </style>
+    <div class="mech-grid">
+
+      <!-- PHASE 1 — 로드 2~3시 (낮은 각도) -->
+      <div>
+        <div class="mech-diagram">
+          <div class="mech-water"></div>
+          <div class="mech-water-lbl">수면</div>
+          <div class="mech-bottom-lbl">바닥 (6m)</div>
+          <svg width="100%" height="100%" viewBox="0 0 140 280" preserveAspectRatio="none">
+            <line x1="10" y1="52" x2="90" y2="10" stroke="#D95B1A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="90" y1="10" x2="104" y2="18" stroke="#E8A020" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="104" cy="18" r="5" fill="#E8A020" opacity="0.9"/>
+            <line x1="104" y1="18" x2="112" y2="60" stroke="#c8b040" stroke-width="3" stroke-linecap="round"/>
+            <line x1="112" y1="60" x2="128" y2="272" stroke="#4a90b8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="128" cy="272" r="5" fill="#5C6B3A"/>
+            <text x="6" y="70" font-size="9" fill="#D95B1A" font-family="monospace">2~3시</text>
+          </svg>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">— 01</div>
+          <div class="mech-title">캐스팅 후 카운트다운</div>
+          <div class="mech-desc">로드를 낮게 유지한 채 50~60초 카운트다운. 플라이가 리더를 따라 사선으로 천천히 바닥까지 침강(텐션폴). 이 구간에서도 리더 움직임으로 입질 감지 가능.</div>
+          <span class="mech-tag mech-tag-blue">텐션폴 · 사선 침강</span>
+        </div>
+      </div>
+
+      <div class="mech-arrow">→</div>
+
+      <!-- PHASE 2 — 로드 1시 -->
+      <div>
+        <div class="mech-diagram">
+          <div class="mech-water"></div>
+          <div class="mech-water-lbl">수면</div>
+          <div class="mech-bottom-lbl">바닥 (6m)</div>
+          <svg width="100%" height="100%" viewBox="0 0 140 280" preserveAspectRatio="none">
+            <line x1="38" y1="100" x2="68" y2="10" stroke="#D95B1A" stroke-width="4" stroke-linecap="round"/>
+            <line x1="68" y1="10" x2="72" y2="22" stroke="#E8A020" stroke-width="3" stroke-linecap="round"/>
+            <line x1="72" y1="22" x2="82" y2="54" stroke="#c8b040" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="77" cy="37" r="10" fill="none" stroke="#c8b040" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.8"/>
+            <circle cx="77" cy="37" r="4" fill="#c8b040" opacity="0.4"/>
+            <line x1="82" y1="54" x2="106" y2="272" stroke="#4a90b8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="106" cy="272" r="5" fill="#5C6B3A"/>
+            <text x="6" y="110" font-size="9" fill="#D95B1A" font-family="monospace">1시</text>
+          </svg>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">— 02</div>
+          <div class="mech-title">로드 서서히 들어올리기</div>
+          <div class="mech-desc">로드를 1시 방향으로 천천히 올림. 수중 리더가 앞으로 당겨지면서 투톤 인디케이터가 수면 바로 아래에 위치. 인디케이터의 미세한 움직임으로 입질 시각 감지.</div>
+          <span class="mech-tag mech-tag-yellow">👁 투톤 인디케이터 감지</span>
+        </div>
+      </div>
+
+      <div class="mech-arrow">→</div>
+
+      <!-- PHASE 3 — 로드 2~3시로 내려오는 중 -->
+      <div>
+        <div class="mech-diagram">
+          <div class="mech-water"></div>
+          <div class="mech-water-lbl">수면</div>
+          <div class="mech-bottom-lbl">바닥 (6m)</div>
+          <svg width="100%" height="100%" viewBox="0 0 140 280" preserveAspectRatio="none">
+            <line x1="20" y1="62" x2="64" y2="10" stroke="#D95B1A" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="64" cy="10" r="12" fill="none" stroke="#7ab648" stroke-width="1.5" stroke-dasharray="3,2" opacity="0.9"/>
+            <circle cx="64" cy="10" r="5" fill="#7ab648" opacity="0.5"/>
+            <line x1="64" y1="10" x2="72" y2="18" stroke="#E8A020" stroke-width="3" stroke-linecap="round"/>
+            <line x1="72" y1="18" x2="82" y2="272" stroke="#4a90b8" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="82" cy="272" r="5" fill="#5C6B3A"/>
+            <text x="6" y="78" font-size="9" fill="#D95B1A" font-family="monospace">2~3시</text>
+          </svg>
+        </div>
+        <div class="mech-card">
+          <div class="mech-num">— 03</div>
+          <div class="mech-title">수직 상승 구간</div>
+          <div class="mech-desc">리더가 거의 수직에 가까워지는 구간. 플라이가 바닥에서 천천히 떠오르며 송어를 자극. 미세한 입질은 로드 팁의 움직임(압력)으로 감지 — Vision Onki의 섬세한 팁이 핵심.</div>
+          <span class="mech-tag mech-tag-green">👁 로드 팁 압력 감지</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 07 현장 평가 -->
+  <div class="section s7">
+    <div class="section-header">
+      <span class="section-num">07</span>
       <span class="section-title">현장 평가</span>
       <div class="section-line"></div>
     </div>
@@ -723,10 +828,10 @@
     </div>
   </div>
 
-  <!-- 07 한터낚시터 -->
+  <!-- 08 한터낚시터 -->
   <div class="section s7">
     <div class="section-header">
-      <span class="section-num">07</span>
+      <span class="section-num">08</span>
       <span class="section-title">한터낚시터 — 공략 대상</span>
       <div class="section-line"></div>
     </div>
