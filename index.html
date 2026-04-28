@@ -6,29 +6,18 @@
     <title>플라이 타잉 소품 및 장비 아카이브</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .gear-card {
-            transition: all 0.3s ease;
-        }
-        .gear-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-        }
+        .gear-card { transition: all 0.3s ease; }
+        .gear-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
         .hero-header {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                         url('https://caddis-gr.github.io/fishing-gear/images/hardy-reel.jpg') center/cover no-repeat;
             min-height: 450px;
-        }
-        @supports not (background: paint(something)) {
-            .hero-header {
-                background: linear-gradient(135deg, #1e3a8a 0%, #7c3aed 100%);
-            }
         }
     </style>
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
     <div class="container mx-auto px-4 py-8 max-w-7xl">
 
-        <!-- Hero Header -->
         <header class="hero-header rounded-2xl shadow-2xl p-12 mb-8 relative overflow-hidden">
             <div class="relative z-10 text-white">
                 <div class="flex items-center gap-4 mb-6">
@@ -51,17 +40,15 @@
             </div>
         </header>
 
-        <!-- Search -->
         <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
             <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." 
                    class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                    oninput="filterGear()">
         </div>
 
-        <!-- Stats -->
         <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
             <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
-                <div class="text-3xl font-bold text-blue-600">15</div>
+                <div class="text-3xl font-bold text-blue-600">16</div>
                 <div class="text-slate-600 mt-1">전체 리뷰</div>
             </div>
             <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
@@ -78,9 +65,33 @@
             </div>
         </div>
 
-        <!-- Gear Grid -->
         <div id="reviews"></div>
         <div id="gearGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- SA Sonar Stillwater Parabolic Sink WF5S - NEW -->
+            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-400">
+                <div class="p-6">
+                    <div class="flex items-start justify-between mb-4">
+                        <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SA SONAR</span>
+                        <span class="text-2xl">🆕</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Stillwater Parabolic Sink</h3>
+                    <p class="text-xs text-orange-500 font-mono mb-3">WF5S · Sink 3/5/3 · Seamless Density</p>
+                    <p class="text-slate-600 mb-4 text-sm">
+                        U형 침강 구조로 바닥 바로 위에 플라이를 띄우는 라인. 싱킹라인 조건에서
+                        Chironomid Larva를 바닥권에 넣을 수 있다는 것만으로도 큰 수확.
+                        하나의 캐스팅으로 전층 통과 → 바닥 탐색 → 수직상승의 다양한 궤적을 만들어낸다.
+                    </p>
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
+                        <span class="text-sm text-slate-500">(9.2/10)</span>
+                    </div>
+                    <a href="reviews/sa-parabolic-sink-review.html"
+                       class="inline-block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
+                        상세 리뷰 보기
+                    </a>
+                </div>
+            </div>
 
             <!-- T&T Helix 863-4 - NEW -->
             <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-indigo-400">
@@ -115,7 +126,7 @@
                         <span class="text-2xl">🆕</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Euro Nymph Short 22ft</h3>
-                    <p class="text-slate-600 mb-4 text-sm">한터낚시터 네오스타일 드리프트 채비 테스트. 루어낚시 네오스타일에서 모티브를 얻은 유로님핑 접목 채비. Vision Onki 3100-4 + 롱리더 시스템.</p>
+                    <p class="text-slate-600 mb-4 text-sm">한터낚시터 네오스타일 드리프트 채비 테스트. Vision Onki 3100-4 + 롱리더 시스템.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
@@ -135,7 +146,7 @@
                         <span class="text-2xl">🆕</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Sixth Sense 2 WF6·7 DI5</h3>
-                    <p class="text-slate-600 mb-4 text-sm">100% PVC Free PU 소재. 균일 5ips 풀싱킹. 6% 저신장으로 훅셋 에너지 손실 최소화. Titan 3D 대비 균일침하 비교 검증용 서브 라인.</p>
+                    <p class="text-slate-600 mb-4 text-sm">100% PVC Free PU 소재. 균일 5ips 풀싱킹. Titan 3D 대비 균일침하 비교 검증용 서브 라인.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
@@ -156,25 +167,21 @@
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-1">Sink 25 Cold Manual</h3>
                     <span class="inline-block px-2 py-0.5 bg-blue-600 text-white text-xs rounded font-bold mb-3">v2</span>
-                    <p class="text-slate-600 mb-4 text-sm">한터지 바닥권 풀싱킹 체계의 서브 라인으로 재정의. 10~12m 단거리 투입 프로토콜 + 정지수 수렴 분석 + 제조사 의도 vs 실전 용도 비교.</p>
+                    <p class="text-slate-600 mb-4 text-sm">한터지 바닥권 풀싱킹 체계의 서브 라인으로 재정의. 10~12m 단거리 투입 프로토콜.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <div class="flex gap-2">
                         <a href="reviews/sink25cold_manual_v2.html" 
-                           class="inline-block flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-bold">
-                            v2 보기
-                        </a>
+                           class="inline-block flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-bold">v2 보기</a>
                         <a href="reviews/260108_sonar_sink_manual.html" 
-                           class="inline-block px-4 py-2 bg-slate-100 text-slate-500 rounded-lg hover:bg-slate-200 transition text-sm">
-                            v1
-                        </a>
+                           class="inline-block px-4 py-2 bg-slate-100 text-slate-500 rounded-lg hover:bg-slate-200 transition text-sm">v1</a>
                     </div>
                 </div>
             </div>
 
-            <!-- 싱킹 플라이라인 드레싱 완전정복 -->
+            <!-- 싱킹 플라이라인 드레싱 -->
             <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-300">
                 <div class="p-6">
                     <div class="flex items-start justify-between mb-4">
@@ -182,15 +189,13 @@
                         <span class="text-2xl">📋</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">싱킹 플라이라인 드레싱 완전정복</h3>
-                    <p class="text-slate-600 mb-4 text-sm">종일 싱킹라인 사용 시 발생하는 뻣뻣함 해결 가이드. 립밤부터 303 Aerospace까지 — 현장에서 바로 쓸 수 있는 현실적인 드레싱 솔루션.</p>
+                    <p class="text-slate-600 mb-4 text-sm">립밤부터 303 Aerospace까지 — 현장에서 바로 쓸 수 있는 드레싱 솔루션.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/flyline_dressing_guide.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -202,15 +207,13 @@
                         <span class="text-2xl">🎣</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Elite Sub-Surface CamoLux WF5I</h3>
-                    <p class="text-slate-600 mb-4 text-sm">카모 패턴으로 물속에서 존재감을 낮추는 인터미디어트 싱킹 라인. 맑은 수질 중층 공략의 스텔스 솔루션.</p>
+                    <p class="text-slate-600 mb-4 text-sm">카모 패턴으로 물속에서 존재감을 낮추는 인터미디어트 싱킹 라인. 스텔스 솔루션.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/RIO_Elite_CamoLux_WF5I_Review.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -222,15 +225,13 @@
                         <span class="text-2xl">🎣</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Elite Technical Trout WF4F</h3>
-                    <p class="text-slate-600 mb-4 text-sm">가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 + RIO Elite Technical Trout WF4F 조합</p>
+                    <p class="text-slate-600 mb-4 text-sm">가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 + RIO Elite Technical Trout WF4F 조합.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/RIO_Elite_Technical_Trout_WF4F.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -242,15 +243,13 @@
                         <span class="text-2xl">✨</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Vision Onki - Ultimate Finesse</h3>
-                    <p class="text-slate-600 mb-4 text-sm">부드럽고 섬세한 피네스피싱의 완성. Vision Onki 3100-4 + Hardy Marquis LWT 조합</p>
+                    <p class="text-slate-600 mb-4 text-sm">부드럽고 섬세한 피네스피싱의 완성. Vision Onki 3100-4 + Hardy Marquis LWT 조합.</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/Vision_Onki_Ultimate_Finesse.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -268,9 +267,7 @@
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/Paradigm_Bouglé_Gold.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -288,9 +285,7 @@
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/251219-Loon_Outdoors_Deep_Soft_Weight.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -308,9 +303,7 @@
                         <span class="text-sm text-slate-500">(4/5)</span>
                     </div>
                     <a href="reviews/251224-TMC_Prismatic_Thread.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -328,9 +321,7 @@
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/260108_sonar_sink_manual.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -348,9 +339,7 @@
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/260108_sonar_sink_manual_EN.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -362,15 +351,13 @@
                         <span class="text-2xl">🎣</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">STILLWATER CLEAR EMERGER TIP</h3>
-                    <p class="text-slate-600 mb-4 text-sm">SA사의 특별한 이머저 전용 라인 소재</p>
+                    <p class="text-slate-600 mb-4 text-sm">SA사의 이머저 전용 라인</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
@@ -382,21 +369,18 @@
                         <span class="text-2xl">📏</span>
                     </div>
                     <h3 class="text-2xl font-bold text-slate-800 mb-2">Parabolic Sink Line</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Rio사의 U프로파일의 플라잉 라인 소재</p>
+                    <p class="text-slate-600 mb-4 text-sm">Rio사의 U프로파일 플라이 라인</p>
                     <div class="flex items-center gap-2 mb-4">
                         <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
                         <span class="text-sm text-slate-500">(5/5)</span>
                     </div>
                     <a href="reviews/Parabolic_Sink_Line.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
-                        상세 리뷰 보기
-                    </a>
+                       class="inline-block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">상세 리뷰 보기</a>
                 </div>
             </div>
 
         </div>
 
-        <!-- Footer -->
         <footer class="mt-12 text-center text-slate-600 pb-8">
             <p class="mb-2">🎣 플라이 낚시를 사랑하는 이들을 위한 타잉 장비 아카이브</p>
             <p class="text-sm">관리형낚시터(저수지)에서의 플라이낚시 경험 공유</p>
