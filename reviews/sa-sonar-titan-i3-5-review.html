@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SA Sonar Titan 3D i/3/5 — 라인 리뷰 · CADDIS-GR</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1a1a1a;--ink-mid:#444;--ink-soft:#888;--paper:#f7f4ef;--paper-2:#eeeae2;--water:#4a7c6f;--water-dk:#2d5248;--water-lt:#a8c5be;--accent:#c0392b;--accent-lt:#f5e6e5;--gold:#b8952a;--rule:#d6d0c4;}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Noto Sans KR',sans-serif;background-color:#e8e2d8;color:var(--ink);}
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.hero{position:relative;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to bottom,rgba(20,45,38,.55),rgba(20,45,38,.82)),url('https://scientificanglers.com/wp-content/uploads/2019/08/sonar-titan-triple-density.jpg') center/cover no-repeat;overflow:hidden;}
+.hero-inner{padding:60px 40px 56px;position:relative;z-index:2;}
+.hero-avatar{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
+.hero-avatar img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(168,197,190,.5);flex-shrink:0;}
+.hero-avatar-name{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(168,197,190,.8);}
+.hero-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--water-lt);margin-bottom:20px;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(40px,7vw,78px);color:#fff;line-height:1.1;margin-bottom:10px;}
+.hero-model{font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,.6);letter-spacing:.12em;margin-bottom:16px;}
+.hero-sub{font-size:16px;font-weight:300;color:rgba(255,255,255,.7);max-width:500px;line-height:1.65;margin-bottom:28px;}
+.hero-meta{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.5);letter-spacing:.06em;}
+.hero-wave{position:absolute;bottom:0;left:0;right:0;width:100%;height:48px;}
+.summary{background:#faf7f2;border-bottom:1px solid var(--rule);}
+.summary-head-outer{background:var(--ink);}
+.summary-head{color:#fff;padding:16px 0;display:flex;align-items:center;justify-content:space-between;}
+.summary-head-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.summary-score{font-family:'DM Serif Display',serif;font-size:44px;color:var(--gold);line-height:1;}
+.summary-score span{font-family:'DM Mono',monospace;font-size:13px;color:rgba(255,255,255,.35);letter-spacing:.1em;}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.summary-item{padding:20px 0;border-bottom:1px solid var(--rule);min-width:0;}
+.summary-item:nth-child(odd){border-right:1px solid var(--rule);padding-right:24px;}
+.summary-item:nth-child(even){padding-left:24px;}
+.summary-item.full{grid-column:1/-1;border-right:none;padding-right:0;}
+.si-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px;}
+.si-val{font-size:14px;font-weight:500;color:var(--ink);line-height:1.65;}
+.si-val em{font-style:normal;color:var(--water-dk);font-weight:700;}
+.sink-badges{display:flex;flex-direction:column;gap:6px;margin-top:4px;width:100%;}
+.sink-badge{font-family:'DM Mono',monospace;font-size:10px;padding:5px 10px;border-radius:3px;line-height:1.5;display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-i{background:#e8f4f1;color:#2d5248;border:1px solid #a8c5be;}
+.sb-s3{background:#e8f0f9;color:#1a3d6b;border:1px solid #8ab0d4;}
+.sb-s5{background:#f9e8e8;color:#7a1c1c;border:1px solid #d4928a;}
+.pattern-flow{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:6px;}
+.pattern-item{font-family:'DM Mono',monospace;font-size:11px;padding:4px 10px;border-radius:3px;}
+.pattern-item.dead{text-decoration:line-through;color:var(--ink-soft);background:var(--paper-2);}
+.pattern-item.mid{background:#fff8d6;color:#7a6010;border:1px solid #e8d47a;}
+.pattern-item.win{background:var(--water-dk);color:#fff;font-weight:700;}
+.pattern-arrow{color:var(--ink-soft);font-size:14px;}
+.summary-verdict{margin:0 0 28px;padding:16px 20px;background:var(--accent-lt);border-left:3px solid var(--accent);font-size:14px;line-height:1.75;color:var(--ink-mid);}
+.article{padding:52px 0;}
+.sec-title{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:20px;padding-bottom:10px;border-bottom:1px solid var(--rule);}
+.article p{font-size:15px;line-height:1.88;color:var(--ink-mid);margin-bottom:20px;}
+.article p strong{color:var(--ink);font-weight:700;}
+.spec-table-wrap{overflow-x:auto;margin:32px 0;border-radius:4px;border:1px solid var(--rule);}
+.spec-table{width:100%;border-collapse:collapse;font-size:13px;}
+.spec-table th{background:var(--ink);color:rgba(255,255,255,.8);font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:12px 16px;text-align:left;}
+.spec-table td{padding:12px 16px;border-bottom:1px solid var(--rule);color:var(--ink-mid);}
+.spec-table tr:last-child td{border-bottom:none;}
+.spec-table tr:nth-child(even) td{background:rgba(0,0,0,.02);}
+.spec-table .val{font-family:'DM Mono',monospace;font-weight:500;color:var(--ink);}
+.spec-table .hi{color:var(--accent);font-weight:700;}
+.gear-box{background:var(--ink);color:#e8e8e8;padding:32px;margin:32px 0;border-radius:4px;}
+.gear-box .sec-title{color:rgba(255,255,255,.3);border-bottom-color:rgba(255,255,255,.1);}
+.gear-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:20px;}
+.gear-row:last-child{margin-bottom:0;}
+.gl-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:3px;white-space:nowrap;margin-top:2px;flex-shrink:0;}
+.gl-main{background:var(--water);color:#fff;}
+.gl-bot{background:#444;color:#bbb;}
+.gear-desc{font-size:13px;line-height:1.75;color:#ccc;}
+.gear-desc strong{color:#fff;}
+.pullquote{border-left:4px solid var(--water);padding:20px 24px;margin:32px 0;background:var(--paper-2);}
+.pullquote p{font-size:17px;font-weight:500;color:var(--water-dk);line-height:1.72;font-style:italic;margin:0;}
+.pullquote cite{display:block;margin-top:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.15em;color:var(--ink-soft);font-style:normal;text-transform:uppercase;}
+.traj-wrap{background:#faf7f2;border:1px solid var(--rule);border-radius:6px;padding:24px;margin:32px 0;}
+.traj-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:16px;}
+.traj-wrap svg{width:100%;height:auto;display:block;}
+.bite-dist{margin:32px 0;background:#faf7f2;border:1px solid var(--rule);border-radius:6px;overflow:hidden;}
+.bite-head{background:var(--ink);padding:14px 20px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.45);}
+.bite-rows{padding:24px 20px;}
+.bite-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;}
+.bite-row:last-child{margin-bottom:0;}
+.bite-label{font-size:13px;font-weight:500;color:var(--ink);min-width:168px;flex-shrink:0;}
+.bite-bar-wrap{flex:1;height:18px;background:var(--paper-2);border-radius:3px;overflow:hidden;}
+.bite-bar{height:100%;border-radius:3px;}
+.b-pole{background:#185FA5;opacity:.4;}
+.b-bottom{background:#854F0B;opacity:.7;}
+.b-rise{background:var(--accent);opacity:.85;}
+.bite-pct{font-family:'DM Serif Display',serif;font-size:20px;min-width:54px;text-align:right;}
+.bite-pct.hi{color:var(--accent);}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0 48px;}
+.gallery-item{position:relative;aspect-ratio:1;overflow:hidden;border-radius:4px;cursor:pointer;background:var(--paper-2);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.gallery-item:hover img{transform:scale(1.06);}
+.gallery-overlay{position:absolute;inset:0;background:rgba(20,45,38,.0);display:flex;align-items:center;justify-content:center;transition:background .3s;}
+.gallery-item:hover .gallery-overlay{background:rgba(20,45,38,.35);}
+.gallery-overlay span{font-size:24px;color:#fff;opacity:0;transform:scale(.7);transition:opacity .3s,transform .3s;}
+.gallery-item:hover .gallery-overlay span{opacity:1;transform:scale(1);}
+@media(max-width:600px){.gallery-grid{grid-template-columns:1fr 1fr;gap:6px;}}
+
+.rating-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:32px 0;}
+.rating-item{background:#faf7f2;border:1px solid var(--rule);border-radius:6px;padding:20px 16px;text-align:center;}
+.rating-val{font-family:'DM Serif Display',serif;font-size:38px;color:var(--water-dk);line-height:1;margin-bottom:6px;}
+.rating-val.gold{color:var(--gold);}
+.rating-cat{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);}
+.closing{position:relative;background:var(--water-dk);color:rgba(255,255,255,.8);padding:52px 40px;overflow:hidden;}
+.closing::before{content:'深';position:absolute;right:-10px;top:-30px;font-family:'DM Serif Display',serif;font-size:240px;color:rgba(255,255,255,.04);line-height:1;pointer-events:none;}
+.closing .sec-title{color:var(--water-lt);border-bottom-color:rgba(255,255,255,.1);}
+.closing p{color:rgba(255,255,255,.75);font-size:15px;line-height:1.88;margin-bottom:20px;}
+.closing p:last-child{color:rgba(255,255,255,.95);}
+.closing .sub-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--water-lt);display:block;margin:28px 0 8px;}
+footer{background:var(--ink);color:rgba(255,255,255,.4);padding:32px 40px;text-align:center;}
+.ft-nav{display:flex;justify-content:center;gap:32px;margin-bottom:16px;}
+.ft-nav a{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);text-decoration:none;}
+.ft-nav a:hover{color:var(--water-lt);}
+footer p{font-family:'DM Mono',monospace;font-size:11px;}
+@media(max-width:600px){
+  .summary-grid{grid-template-columns:1fr;}
+  .summary-item:nth-child(odd){border-right:none;padding-right:0;}
+  .summary-item:nth-child(even){padding-left:0;}
+  .rating-grid{grid-template-columns:1fr 1fr;}
+  .hero-inner{padding:40px 20px 48px;}
+  .gear-box,.closing{padding:28px 20px;}
+  .summary-grid,.summary-verdict{padding:0 20px;}
+  .summary-verdict{margin:0 20px 24px;}
+  .bite-label{min-width:110px;font-size:12px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-avatar">
+      <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/data/prof.PNG" alt="낚시대장 프로필">
+      <span class="hero-avatar-name">낚시대장 · CADDIS-GR</span>
+    </div>
+    <div class="hero-tag">CADDIS-GR · Line Review · <a href="https://scientificanglers.com/product/sonar-titan-int-sink-2-sink-3/" target="_blank" rel="noopener" style="color:var(--water-lt);text-decoration:none;border-bottom:1px solid rgba(168,197,190,.35);padding-bottom:1px;">Scientific Anglers 공식 제품 페이지 ↗</a></div>
+    <h1>Sonar Titan 3D</h1>
+    <div class="hero-model">SA SONAR TITAN INTS3S5 · WF6S · i / 3 / 5</div>
+    <p class="hero-sub">바닥을 향한 안정적인 직선 — 6미터 관리형 저수지를 위한 풀싱킹 트리플 덴시티 라인</p>
+    <div class="hero-meta">📅 2024–2025 두 시즌 운용 &nbsp;|&nbsp; 📍 한터낚시터, 용인 &nbsp;|&nbsp; 🎣 #14 · #16 리치류</div>
+  </div>
+  <svg class="hero-wave" viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 48 C360 0 1080 0 1440 48 L1440 48 L0 48Z" fill="#e8e2d8"/>
+  </svg>
+</header>
+
+<section class="summary">
+  <div class="summary-head-outer">
+    <div class="summary-head wrap">
+      <span class="summary-head-label">라인 리뷰 요약</span>
+      <div class="summary-score">9.2 <span>/ 10</span></div>
+    </div>
+  </div>
+  <div class="wrap">
+  <div class="summary-grid">
+    <div class="summary-item">
+      <div class="si-label">라인 구성</div>
+      <div class="si-val">
+        Running · Intermediate · <em>1.25 ips</em><br>
+        Mid Belly · Sink 3 · <em>2.5–3.5 ips</em><br>
+        Tip · Sink 5 · <em>4.5–6.0 ips</em>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="si-label">주요 제원</div>
+      <div class="si-val">
+        헤드 길이 <em>33.5ft / 10.2m</em><br>
+        총 길이 <em>105ft / 32m</em><br>
+        헤드 중량 <em>230gr</em> (WF-6)<br>
+        코어 <em>브레이드 멀티필라멘트</em>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="si-label">운용 조건</div>
+      <div class="si-val">
+        수심 <em>6m</em> 관리형 저수지<br>
+        평균 캐스팅 비거리 <em>15~18m</em><br>
+        리더 <em>풀카본 5~6ft</em><br>
+        리트리브 <em>느린 8자</em>
+      </div>
+    </div>
+    <div class="summary-item">
+      <div class="si-label">주력 플라이</div>
+      <div class="si-val">
+        <em>#14 · #16</em> 리치류
+      </div>
+    </div>
+    <div class="summary-item full">
+      <div class="si-label">운용 패턴 전환 흐름</div>
+      <div class="si-val">
+        <div class="pattern-flow">
+          <span class="pattern-item dead">표층 플로팅</span>
+          <span class="pattern-arrow">→</span>
+          <span class="pattern-item mid">중층 인터미디어트 탐색</span>
+          <span class="pattern-arrow">→</span>
+          <span class="pattern-item win">i/3/5 바텀 공략 확정</span>
+        </div>
+      </div>
+    </div>
+  </div><!-- summary-grid -->
+  <div class="summary-verdict">
+    두 시즌의 경험으로 정리한 결론 — <strong>바닥을 향한 가장 안정적인 직선.</strong> 공식 Sink 5 수치로는 25카운트 기준 약 3.3~3.8m권, 실제 운용 체감으로는 4m권 진입에 가까웠고, 이후 리트리브 중 잔여 침강으로 착저하는 패턴이 반복됐다. 특히 발앞 전환점과 수직 상승 구간에서 입질이 집중되며, 현재 운용 체계에서는 바텀 전용기로서 매우 확실한 포지션을 확보한 라인.
+  </div>
+  </div><!-- wrap -->
+</section>
+
+<main class="article wrap">
+
+  <div class="sec-title">들어가며</div>
+  <p>관리형 저수지 플라이낚시에서 수심 6미터라는 환경은 라인 선택의 폭을 좁힌다. 인디케이터를 달고 플로팅 라인으로 6미터 수심을 공략하는 방식은 캐스팅 자체가 부담이고, 인디케이터 아래로 리더를 길게 내려도 플라이가 자연스럽게 바닥에 머무르게 하기 어렵다. SA Sonar Titan 3D i/3/5는 그 답을 트리플 덴시티 구조로 풀어낸 라인이다.</p>
+  <p>런닝 라인(Intermediate), 벨리(Sink 3), 팁(Sink 5)의 세 가지 싱크율을 하나의 라인에 통합함으로써 캐스팅 후 팁이 먼저 빠르게 가라앉고 벨리가 뒤따라오며 라인 전체가 직선에 가까운 각도로 수중에 뻗는다. 이것이 이 라인의 핵심이다.</p>
+
+  <div class="sec-title">제원 상세</div>
+  <div class="spec-table-wrap">
+    <table class="spec-table">
+      <thead><tr><th>항목</th><th>스펙</th><th>비고</th></tr></thead>
+      <tbody>
+        <tr><td>모델</td><td class="val">SA Sonar Titan 3D</td><td>Triple Density</td></tr>
+        <tr><td>라인 표기</td><td class="val">WF-6-S · i/3/5</td><td>WF6S 기준</td></tr>
+        <tr><td>Running 싱크율</td><td class="val">Intermediate · 1.25 ips</td><td></td></tr>
+        <tr><td>Mid/Belly 싱크율</td><td class="val hi">Sink 3 · 2.5–3.5 ips</td><td></td></tr>
+        <tr><td>Tip 싱크율</td><td class="val hi">Sink 5 · 4.5–6.0 ips</td><td>평균 5.25 ips</td></tr>
+        <tr><td>헤드 길이</td><td class="val">33.5ft / 10.2m</td><td></td></tr>
+        <tr><td>총 길이</td><td class="val">105ft / 32m</td><td></td></tr>
+        <tr><td>헤드 중량</td><td class="val">230gr / 14.9g</td><td>WF-6</td></tr>
+        <tr><td>Grain Weight</td><td class="val">210gr / 13.6g</td><td>첫 30ft 기준</td></tr>
+        <tr><td>코어</td><td class="val">브레이드 멀티필라멘트</td><td>중·저온 환경 적합</td></tr>
+        <tr><td>색상 구분</td><td class="val">Pale Green / Olive / Charcoal</td><td>구간별 색상 분리</td></tr>
+        <tr><td>기술</td><td class="val">AST · Shooting Texture · Welded Loops</td><td></td></tr>
+        <tr><td>행마커 위치</td><td class="val hi">팁에서 20ft (6.1m)</td><td>UV Knot Sense 코팅 권장</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 라인 프로파일 이미지 -->
+  <div style="margin:28px 0;">
+    <div class="sec-title">Line Profile · 테이퍼 다이어그램</div>
+    <a href="https://scientificanglers.com/product/sonar-titan-int-sink-2-sink-3/" target="_blank" rel="noopener">
+      <img
+        src="https://scientificanglers.com/wp-content/uploads/2019/08/Sonar-Titan-Int-Merge.jpg"
+        alt="SA Sonar Titan 3D i/3/5 — 테이퍼 프로파일"
+        style="width:100%;display:block;border:1px solid var(--rule);border-radius:4px;"
+        loading="lazy"
+      >
+    </a>
+    <p style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--ink-soft);margin-top:8px;text-align:right;">
+      ↗ <a href="https://scientificanglers.com/product/sonar-titan-int-sink-2-sink-3/" target="_blank" rel="noopener" style="color:var(--water);text-decoration:none;">Scientific Anglers 공식 제품 페이지</a>에서 Density 옵션 중 Sink I/3/5 선택 후 전체 스펙 확인
+    </p>
+    <p style="font-size:13px;color:var(--ink-soft);line-height:1.7;margin-top:10px;">※ 공식 페이지 URL에는 i/2/3 표기가 포함되어 있지만, 같은 제품 페이지 안에서 Density 옵션을 Sink I/3/5로 선택하면 WF6S i/3/5 제원을 확인할 수 있다.</p>
+  </div>
+
+
+
+  <div class="pullquote">
+    <p>"캐스팅 후 25카운트. 공식 수치상으로는 3m 후반권, 실제 운용 체감으로는 4미터권에 들어섰다고 보고 리트리브를 시작한다. 이후 바닥을 긁고 돌아오다 발 앞에서 수직으로 떠오르는 그 순간 — 체감상 입질의 대부분은 거기에 있었다."</p>
+    <cite>CADDIS-GR · 낚시대장 · 두 시즌 운용 기록</cite>
+  </div>
+
+  <div class="sec-title">수중 궤적 분석</div>
+  <p>동일 조건(15m 캐스팅, 25카운트, 느린 8자 리트리브, 총 2분30초)에서 i/3/5 라인의 수중 궤적을 두 시즌 운용 중 반복 관찰된 패턴을 바탕으로 모델화했다. 정확한 수중 촬영 데이터가 아니라, 캐스팅 거리·카운트다운·행마커 도달 시점·입질 위치를 바탕으로 재구성한 운용 모델이다.</p>
+
+  <div class="traj-wrap">
+    <div class="traj-title">SA Sonar Titan 3D i/3/5 — 25카운트 운용 모델 (수심 6m · 15m 캐스팅 · 총 런닝타임 2:30)</div>
+    <svg viewBox="0 0 660 470" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="as" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </marker>
+      </defs>
+      <rect x="60" y="52" width="520" height="42"  fill="#3B8BD4" opacity="0.06"/>
+      <rect x="60" y="94" width="520" height="58"  fill="#3B8BD4" opacity="0.10"/>
+      <rect x="60" y="152" width="520" height="56" fill="#3B8BD4" opacity="0.13"/>
+      <rect x="60" y="208" width="520" height="56" fill="#3B8BD4" opacity="0.17"/>
+      <rect x="60" y="264" width="520" height="14" fill="#BA7517" opacity="0.32"/>
+      <rect x="60" y="278" width="520" height="16" fill="#BA7517" opacity="0.13"/>
+      <line x1="60" y1="52"  x2="66" y2="52"  stroke="#888" stroke-width="0.8"/>
+      <line x1="60" y1="94"  x2="66" y2="94"  stroke="#888" stroke-width="0.8"/>
+      <line x1="60" y1="152" x2="66" y2="152" stroke="#888" stroke-width="0.8"/>
+      <line x1="60" y1="178" x2="66" y2="178" stroke="#185FA5" stroke-width="1"/>
+      <line x1="60" y1="208" x2="66" y2="208" stroke="#888" stroke-width="0.8"/>
+      <line x1="60" y1="264" x2="66" y2="264" stroke="#888" stroke-width="0.8"/>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="56"  text-anchor="end" fill="#888">0m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="98"  text-anchor="end" fill="#888">2m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="156" text-anchor="end" fill="#888">3m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="182" text-anchor="end" fill="#185FA5">4m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="212" text-anchor="end" fill="#888">5m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="54" y="268" text-anchor="end" fill="#BA7517">6m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="86"  y="42" text-anchor="middle" fill="#888">발앞</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="190" y="42" text-anchor="middle" fill="#888">5m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="340" y="42" text-anchor="middle" fill="#888">10m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="490" y="42" text-anchor="middle" fill="#888">15m</text>
+      <text font-family="DM Mono,monospace" font-size="10" x="556" y="42" text-anchor="middle" fill="#888">착수</text>
+      <circle cx="556" cy="54" r="5" fill="#185FA5"/>
+      <!-- 자연폴링 -->
+      <path d="M556 54 C552 80, 543 124, 532 151 C522 172, 512 177, 500 178" fill="none" stroke="#185FA5" stroke-width="2.2" stroke-dasharray="8 5" opacity="0.9"/>
+      <path d="M546 96 C540 120, 534 144, 527 162" fill="none" stroke="#185FA5" stroke-width="1.5" marker-end="url(#as)" opacity="0.45"/>
+      <circle cx="500" cy="178" r="5" fill="#185FA5"/>
+      <text font-family="DM Mono,monospace" font-size="9" x="504" y="172" fill="#185FA5">25cnt · 3.3~3.8m</text>
+      <rect x="366" y="62" width="150" height="46" rx="4" fill="#faf7f2" stroke="#185FA5" stroke-width="0.8"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="10" font-weight="700" x="441" y="80" text-anchor="middle" fill="#185FA5">① 자연 폴링</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="441" y="95" text-anchor="middle" fill="#888">25카운트 / 25초</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="441" y="107" text-anchor="middle" fill="#888">S5 평균치 → 3m 후반권</text>
+      <!-- 리트리브 싱킹 -->
+      <path d="M500 178 C478 202, 450 236, 424 252 C404 263, 388 266, 370 266" fill="none" stroke="#0F6E56" stroke-width="2" stroke-dasharray="5 3" opacity="0.9"/>
+      <path d="M478 206 C460 226, 442 244, 428 255" fill="none" stroke="#0F6E56" stroke-width="1.5" marker-end="url(#as)" opacity="0.45"/>
+      <circle cx="370" cy="266" r="4" fill="#0F6E56"/>
+      <text font-family="DM Mono,monospace" font-size="9" x="374" y="260" fill="#0F6E56">착저 ~9m</text>
+      <rect x="356" y="178" width="154" height="36" rx="4" fill="#faf7f2" stroke="#0F6E56" stroke-width="0.8"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="10" font-weight="700" x="433" y="196" text-anchor="middle" fill="#0F6E56">② 리트리브 싱킹</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="433" y="210" text-anchor="middle" fill="#888">0.125 m/s · 잔여 싱크율로 착저</text>
+      <!-- 바텀 리트리브 -->
+      <path d="M370 266 C328 264, 278 267, 228 266 C196 265, 164 266, 136 266" fill="none" stroke="#854F0B" stroke-width="2.8" opacity="0.85"/>
+      <line x1="370" y1="266" x2="200" y2="266" stroke="#854F0B" stroke-width="1.5" marker-end="url(#as)" opacity="0.4"/>
+      <circle cx="316" cy="262" r="4" fill="#BA7517" opacity="0.65"/>
+      <circle cx="270" cy="264" r="4" fill="#BA7517" opacity="0.55"/>
+      <circle cx="220" cy="262" r="4" fill="#BA7517" opacity="0.70"/>
+      <text font-family="DM Mono,monospace" font-size="9" x="264" y="253" text-anchor="middle" fill="#BA7517">바텀 입질 20~30%</text>
+      <!-- 전환점 -->
+      <circle cx="136" cy="266" r="7" fill="#c0392b"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="9" font-weight="700" x="136" y="288" text-anchor="middle" fill="#c0392b">전환점</text>
+      <!-- 수직 상승 -->
+      <path d="M136 266 C132 236, 110 184, 98 136 C92 106, 89 78, 86 54" fill="none" stroke="#c0392b" stroke-width="2.8" opacity="0.9"/>
+      <line x1="116" y1="202" x2="94" y2="130" stroke="#c0392b" stroke-width="1.5" marker-end="url(#as)" opacity="0.5"/>
+      <circle cx="124" cy="236" r="5" fill="#c0392b" opacity="0.70"/>
+      <circle cx="104" cy="188" r="5" fill="#c0392b" opacity="0.80"/>
+      <circle cx="94"  cy="142" r="5" fill="#c0392b" opacity="0.90"/>
+      <circle cx="88"  cy="100" r="4" fill="#c0392b" opacity="0.80"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="9" font-weight="700" x="40" y="186" text-anchor="middle" fill="#c0392b">수직상승</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="40" y="199" text-anchor="middle" fill="#c0392b">입질 집중</text>
+      <!-- 행! -->
+      <circle cx="86" cy="54" r="8" fill="#c0392b"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="13" font-weight="700" x="86" y="36" text-anchor="middle" fill="#c0392b">행!</text>
+      <!-- 낚시꾼 -->
+      <text font-family="Noto Sans KR,sans-serif" font-size="10" x="86" y="308" text-anchor="middle" fill="#888">낚시꾼</text>
+      <line x1="86" y1="300" x2="86" y2="290" stroke="#888" stroke-width="0.5" opacity="0.4"/>
+      <!-- 수층 레이블 -->
+      <text font-family="DM Mono,monospace" font-size="9" x="592" y="76"  fill="#3B8BD4" opacity="0.7">표층</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="592" y="128" fill="#3B8BD4" opacity="0.8">중층</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="592" y="182" fill="#185FA5" opacity="0.9">4m</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="592" y="240" fill="#3B8BD4" opacity="0.9">하층</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="592" y="270" fill="#BA7517" opacity="0.9">바닥</text>
+      <!-- 타임라인 -->
+      <rect x="80" y="322" width="480" height="16" rx="3" fill="#eeeae2" stroke="#d6d0c4" stroke-width="0.5"/>
+      <rect x="80"  y="322" width="80"  height="16" rx="3" fill="#185FA5" opacity="0.22"/>
+      <rect x="160" y="322" width="90"  height="16" rx="0" fill="#0F6E56" opacity="0.25"/>
+      <rect x="250" y="322" width="228" height="16" rx="0" fill="#854F0B" opacity="0.18"/>
+      <rect x="478" y="322" width="82"  height="16" rx="3" fill="#c0392b"  opacity="0.22"/>
+      <text font-family="DM Mono,monospace" font-size="9" x="120" y="333" text-anchor="middle" fill="#185FA5">① 폴링 25s</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="205" y="333" text-anchor="middle" fill="#0F6E56">② 착저</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="364" y="333" text-anchor="middle" fill="#854F0B">③ 바텀 리트리브</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="519" y="333" text-anchor="middle" fill="#c0392b">④ 수직상승</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="80"  y="352" text-anchor="middle" fill="#888">0:00</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="160" y="352" text-anchor="middle" fill="#888">0:25</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="250" y="352" text-anchor="middle" fill="#888">0:55</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="478" y="352" text-anchor="middle" fill="#888">~2:00</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="560" y="352" text-anchor="middle" fill="#888">2:30</text>
+      <!-- 속도 정보 박스 -->
+      <rect x="80" y="366" width="480" height="56" rx="4" fill="#faf7f2" stroke="#d6d0c4" stroke-width="0.5"/>
+      <text font-family="Noto Sans KR,sans-serif" font-size="10" font-weight="700" x="320" y="383" text-anchor="middle" fill="#1a1a1a">속도 분석</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="96" y="400" fill="#888">S5 팁 싱크율</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="296" y="400" text-anchor="end" fill="#1a1a1a">4.5–6.0 ips · 평균 5.25 ips</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="96" y="415" fill="#888">25cnt 도달 수심</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="296" y="415" text-anchor="end" fill="#1a1a1a">계산상 약 3.3~3.8m권</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="320" y="400" fill="#888">리트리브 속도</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="554" y="400" text-anchor="end" fill="#185FA5">약 0.12~0.15 m/s (느린 8자)</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="320" y="415" fill="#888">행마커 위치</text>
+      <text font-family="DM Mono,monospace" font-size="9" x="554" y="415" text-anchor="end" fill="#c0392b">팁에서 20ft (6.1m)</text>
+    </svg>
+  </div>
+
+  <div class="sec-title">입질 분포 분석</div>
+  <p>두 시즌 운용을 통해 반복적으로 확인된 구간별 입질 체감 비율이다. 정확한 계량 통계라기보다, 같은 수역·같은 라인·유사한 리트리브 조건에서 반복된 현장 패턴으로 보는 것이 적절하다.</p>
+  <div class="bite-dist">
+    <div class="bite-head">구간별 입질 분포 · 두 시즌 운용 체감 비율</div>
+    <div class="bite-rows">
+      <div class="bite-row">
+        <div class="bite-label">① 폴링~착저 구간</div>
+        <div class="bite-bar-wrap"><div class="bite-bar b-pole" style="width:6%"></div></div>
+        <div class="bite-pct" style="color:#185FA5;font-size:14px;">드물게</div>
+      </div>
+      <div class="bite-row">
+        <div class="bite-label">② 바텀 리트리브</div>
+        <div class="bite-bar-wrap"><div class="bite-bar b-bottom" style="width:25%"></div></div>
+        <div class="bite-pct" style="color:#854F0B;">20~30%</div>
+      </div>
+      <div class="bite-row">
+        <div class="bite-label">③ 수직 상승 + 전환점</div>
+        <div class="bite-bar-wrap"><div class="bite-bar b-rise" style="width:72%"></div></div>
+        <div class="bite-pct hi">체감상 다수</div>
+      </div>
+    </div>
+  </div>
+  <p>이 반복 관찰이 시사하는 바는 분명하다. 관리형 저수지 특성상 바닥 지형과 가두리·그물 구조가 만나는 경계부가 생기고, 이 경계가 송어의 바닥권 체류 지점으로 작동했을 가능성이 있다. 또한 싱킹라인이 바닥을 수평적으로 훑고 오다가 발앞에서 수직 상승으로 전환되는 위치·방향 변화가 입질 트리거로 작동했을 가능성이 높다.</p>
+
+  <div class="sec-title">항목별 평가</div>
+  <div class="rating-grid">
+    <div class="rating-item"><div class="rating-val gold">9.5</div><div class="rating-cat">바텀 도달력</div></div>
+    <div class="rating-item"><div class="rating-val">9.0</div><div class="rating-cat">캐스팅성</div></div>
+    <div class="rating-item"><div class="rating-val">8.8</div><div class="rating-cat">조과 효율</div></div>
+    <div class="rating-item"><div class="rating-val">8.5</div><div class="rating-cat">수층 유연성</div></div>
+    <div class="rating-item"><div class="rating-val">9.2</div><div class="rating-cat">내구성</div></div>
+    <div class="rating-item"><div class="rating-val gold">9.2</div><div class="rating-cat">종합</div></div>
+  </div>
+
+  <!-- 갤러리 -->
+  <div class="sec-title" style="margin-top:40px;">Gallery · 한터낚시터</div>
+  <div class="gallery-grid">
+    <div class="gallery-item" onclick="openLb(0)">
+      <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout02.JPEG" alt="한터낚시터 송어 01" loading="lazy">
+      <div class="gallery-overlay"><span>↗</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(1)">
+      <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout21.JPEG" alt="한터낚시터 송어 02" loading="lazy">
+      <div class="gallery-overlay"><span>↗</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLb(2)">
+      <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout22.JPEG" alt="한터낚시터 송어 03" loading="lazy">
+      <div class="gallery-overlay"><span>↗</span></div>
+    </div>
+  </div>
+
+</main>
+
+<!-- 라이트박스 -->
+<div id="lb" onclick="closeLb()" style="display:none;position:fixed;inset:0;background:rgba(10,20,18,.93);backdrop-filter:blur(6px);z-index:9999;display:none;align-items:center;justify-content:center;flex-direction:column;">
+  <button onclick="event.stopPropagation();moveLb(-1)" style="position:fixed;left:24px;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">‹</button>
+  <img id="lb-img" src="" alt="" style="max-width:90vw;max-height:82vh;object-fit:contain;border-radius:3px;box-shadow:0 24px 80px rgba(0,0,0,.6);">
+  <div id="lb-cap" style="font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.45);margin-top:14px;letter-spacing:.12em;"></div>
+  <button onclick="closeLb()" style="position:fixed;right:24px;top:24px;background:none;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:16px;width:36px;height:36px;border-radius:50%;cursor:pointer;">✕</button>
+  <button onclick="event.stopPropagation();moveLb(1)" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
+</div>
+
+<div class="closing wrap">
+  <div class="sec-title">종합 평가</div>
+  <span class="sub-lbl">포지셔닝</span>
+  <p>SA Sonar Titan 3D i/3/5는 관리형 저수지 6미터 바닥 공략에 있어 두 시즌 경험을 통해 확인한 바로는 현재까지 가장 안정적인 도구다. 트리플 덴시티 구조가 만들어내는 직선형 수중 자세는 바닥을 단시간에 정확히 찍는 능력을 안정적으로 제공하며, AST 코팅이 부여하는 슬라이딩 특성은 캐스팅 거리와 픽업 능력 모두에서 실질적인 이점을 만든다.</p>
+  <span class="sub-lbl">한계와 보완</span>
+  <p>단, 이 라인의 강력한 바텀 지향성은 동시에 한계이기도 하다. 중층을 유영하는 송어, 특히 시즌 막판 키로노미드 피싱 국면에서는 2.5~5m 구간을 더 천천히 탐색하는 라인이 별도로 필요하다. i/3/5가 바텀 전용기로서 확고한 자리를 잡은 지금, 중층 탐색을 위한 i/2/3 추가는 검토할 만한 다음 선택이다. 두 라인은 경쟁 관계가 아니라 수층 분업 관계다.</p>
+  <p>두 시즌의 데이터가 보여주듯, 좋은 라인은 단순히 깊이 가라앉는 것이 아니다. 가라앉은 뒤 어떻게 돌아오는가 — 그 귀환의 궤적이 입질을 만든다. i/3/5는 그 궤적을 만들어내는 방식에서 매우 높은 완성도를 보여줬다.</p>
+</div>
+
+<script>
+const LB_ITEMS = [
+  { src:'https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout02.JPEG', cap:'한터낚시터 · 2025.05.01' },
+  { src:'https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout21.JPEG', cap:'한터낚시터 · 2025.05.01' },
+  { src:'https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout22.JPEG', cap:'한터낚시터 · 2025.05.01' },
+];
+let lbIdx = 0;
+const lb = document.getElementById('lb');
+const lbImg = document.getElementById('lb-img');
+const lbCap = document.getElementById('lb-cap');
+function openLb(i){ lbIdx=i; lb.style.display='flex'; lbImg.src=LB_ITEMS[i].src; lbCap.textContent=LB_ITEMS[i].cap+' · '+(i+1)+' / '+LB_ITEMS.length; document.body.style.overflow='hidden'; }
+function closeLb(){ lb.style.display='none'; document.body.style.overflow=''; }
+function moveLb(d){ lbIdx=(lbIdx+d+LB_ITEMS.length)%LB_ITEMS.length; lbImg.src=LB_ITEMS[lbIdx].src; lbCap.textContent=LB_ITEMS[lbIdx].cap+' · '+(lbIdx+1)+' / '+LB_ITEMS.length; }
+document.addEventListener('keydown',e=>{ if(lb.style.display==='flex'){ if(e.key==='Escape')closeLb(); if(e.key==='ArrowLeft')moveLb(-1); if(e.key==='ArrowRight')moveLb(1); } });
+</script>
+<footer>
+  <div class="ft-nav">
+    <a href="../index.html">CADDIS-GR Home</a>
+    <a href="../fishing-log/index.html">Fishing Log</a>
+    <a href="../gear-review/index.html">Gear Review</a>
+  </div>
+  <p>© 2025 CADDIS-GR · 낚시대장 &nbsp;·&nbsp; SA Sonar Titan 3D i/3/5 Line Review</p>
+</footer>
+
+</body>
+</html>
