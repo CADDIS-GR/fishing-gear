@@ -24,6 +24,7 @@
 ## 📦 리뷰 목록
 
 ### SA SONAR
+- **Sonar Titan 3D i/3/5 WF6S** 🆕 - 두 시즌 한터낚시터 바텀 공략 주력 라인. Triple Density · i / Sink 3 / Sink 5. 25카운트에 4m권 도달, 수직 상승 구간 입질 70%+. 트리플 덴시티 직선형 수중 궤적이 핵심 ⭐⭐⭐⭐⭐ (9.2/10)
 - **Stillwater Parabolic Sink WF5S** 🆕 - U형 침강 구조로 바닥 바로 위에 플라이를 띄우는 라인. Sink 3/5/3 · Seamless Density. 싱킹라인 조건에서 Chironomid Larva를 바닥권에 넣을 수 있다는 것만으로도 큰 수확. 하나의 캐스팅으로 전층 통과 → 바닥 탐색 → 수직상승의 다양한 궤적을 만들어낸다 ⭐⭐⭐⭐⭐ (9.2/10)
 - **Sink 25 Cold Manual v2** - 한터지 바닥권 풀싱킹 서브 라인으로 재정의. 10~12m 단거리 투입 프로토콜 + 정지수 수렴 분석 ⭐⭐⭐⭐⭐
 - **Sink Manual (KR)** - SA SONAR 싱크 라인 매뉴얼 (한글) ⭐⭐⭐⭐⭐
@@ -68,9 +69,10 @@ fishing-gear/
 ├── images/
 │   └── Helix/          # T&T Helix 863-4 사진
 └── reviews/            # 리뷰 HTML 파일들
-    ├── sa-parabolic-sink-review.html          # 🆕 SA Sonar Stillwater Parabolic Sink WF5S
-    ├── TT_Helix_863-4_Review.html             # 🆕 T&T Helix 863-4
-    ├── airflo_euro_nymph_short_review.html    # 🆕 Airflo Euro Nymph Short 22ft
+    ├── sa-sonar-titan-i3-5-review.html           # 🆕 SA Sonar Titan 3D i/3/5 WF6S
+    ├── sa-parabolic-sink-review.html              # 🆕 SA Sonar Stillwater Parabolic Sink WF5S
+    ├── TT_Helix_863-4_Review.html                 # 🆕 T&T Helix 863-4
+    ├── airflo_euro_nymph_short_review.html        # 🆕 Airflo Euro Nymph Short 22ft
     ├── Airflo_Sixth_Sense2_DI5_Review.html
     ├── sink25cold_manual_v2.html
     ├── flyline_dressing_guide.html
@@ -155,12 +157,24 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 16개
+- **전체 리뷰**: 17개
 - **브랜드 수**: 7개
 - **평균 평점**: ⭐ 4.9/5.0
-- **최근 업데이트**: 2026년 4월
+- **최근 업데이트**: 2026년 5월
 
 ## 🌟 최신 리뷰
+
+### SA Sonar Titan 3D i/3/5 WF6S (2026.05) 🆕
+두 시즌 한터낚시터 바텀 공략의 주력 라인. 트리플 덴시티 구조(Intermediate / Sink 3 / Sink 5)가 만들어내는 직선형 수중 자세가 핵심이다. 25카운트에 팁이 4m권에 도달하고, 리트리브 싱킹을 거쳐 착저한 뒤 수직 상승 전환점까지의 구간에서 입질 70%+가 집중된다.
+
+**핵심 특징:**
+- 🔵 **Triple Density** — Running(Intermediate) · Mid Belly(Sink 3) · Tip(Sink 5)
+- 📐 **직선형 수중 자세** — 팁이 먼저 빠르게 가라앉고 벨리가 뒤따르는 구조
+- 🎯 **수직 상승 트리거** — 바닥 수평 이동 후 수직 전환점에서 입질 집중
+- 📏 **Head 33.5ft / 10.2m** — 짧고 강력한 파워 헤드
+- 🪝 **행마커** — 팁에서 20ft(6.1m) · UV Knot Sense 코팅
+
+---
 
 ### SA Sonar Stillwater Parabolic Sink WF5S (2026.04) 🆕
 전 수심층을 빠르게 탐색하는 파일럿 기능 위주로 설계된 라인이지만, 느린 8자 리트리브로 운영한다면 전혀 다른 성격의 라인으로 바뀐다. Sink 5의 밸리가 Sink 3의 팁보다 먼저 떨어지면서 U자 형태가 만들어지고, 뒤따르는 플라이가 이 궤적을 그대로 따라 움직이게 된다. 떨어지면서 전층을 통과하고, 바닥을 탐색하고, 다시 수직으로 올라오는 — 하나의 캐스팅으로 다양한 수층 궤적을 만들어내는 라인이다.
