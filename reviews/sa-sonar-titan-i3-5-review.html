@@ -10,10 +10,12 @@
 <style>
 :root{--ink:#1a1a1a;--ink-mid:#444;--ink-soft:#888;--paper:#f7f4ef;--paper-2:#eeeae2;--water:#4a7c6f;--water-dk:#2d5248;--water-lt:#a8c5be;--accent:#c0392b;--accent-lt:#f5e6e5;--gold:#b8952a;--rule:#d6d0c4;}
 *{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:64px;}
+html{scroll-padding-top:64px;}
 body{font-family:'Noto Sans KR',sans-serif;background-color:#e8e2d8;color:var(--ink);}
 .wrap{max-width:780px;margin:0 auto;padding:0 24px}
 .hero{position:relative;min-height:520px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(to bottom,rgba(20,45,38,.55),rgba(20,45,38,.82)),url('https://scientificanglers.com/wp-content/uploads/2019/08/sonar-titan-triple-density.jpg') center/cover no-repeat;overflow:hidden;}
-.hero-inner{padding:60px 40px 56px;position:relative;z-index:2;}
+.hero-inner{padding:108px 40px 56px;position:relative;z-index:2;}
 .hero-avatar{display:flex;align-items:center;gap:12px;margin-bottom:24px;}
 .hero-avatar img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid rgba(168,197,190,.5);flex-shrink:0;}
 .hero-avatar-name{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(168,197,190,.8);}
@@ -111,6 +113,17 @@ body{font-family:'Noto Sans KR',sans-serif;background-color:#e8e2d8;color:var(--
 .closing p:last-child{color:rgba(255,255,255,.95);}
 .closing .sub-lbl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--water-lt);display:block;margin:28px 0 8px;}
 footer{background:var(--ink);color:rgba(255,255,255,.4);padding:32px 40px;text-align:center;}
+/* ── sticky nav ── */
+.sticky-nav{position:fixed;top:0;left:0;right:0;z-index:8000;background:rgba(20,35,30,.94);backdrop-filter:blur(10px);border-bottom:1px solid rgba(168,197,190,.18);box-shadow:0 8px 24px rgba(0,0,0,.12);}
+.sticky-nav.visible{transform:none;}
+.sticky-nav-inner{display:flex;align-items:center;gap:0;padding-top:0;padding-bottom:0;height:48px;}
+.sticky-nav-menu{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,197,190,.5);padding-right:20px;border-right:1px solid rgba(168,197,190,.15);margin-right:16px;white-space:nowrap;}
+.sticky-nav-links{display:flex;align-items:center;gap:4px;overflow-x:auto;scrollbar-width:none;}
+.sticky-nav-links::-webkit-scrollbar{display:none;}
+.snl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-decoration:none;padding:6px 12px;border-radius:20px;white-space:nowrap;transition:background .2s,color .2s;}
+.snl:hover{background:rgba(168,197,190,.15);color:#fff;}
+.snl.active{background:var(--water);color:#fff;}
+@media(max-width:600px){.sticky-nav-menu{display:none;}.snl{padding:6px 9px;font-size:9px;}}
 .next-section{background:var(--paper-2);border-top:3px solid var(--water);padding:60px 0;}
 .next-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--water);margin-bottom:12px;}
 .next-title{font-family:'Noto Sans KR',sans-serif;font-size:clamp(22px,3vw,32px);font-weight:700;color:var(--ink);margin-bottom:18px;line-height:1.3;}
@@ -135,7 +148,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   .summary-item:nth-child(odd){border-right:none;padding-right:0;}
   .summary-item:nth-child(even){padding-left:0;}
   .rating-grid{grid-template-columns:1fr 1fr;}
-  .hero-inner{padding:40px 20px 48px;}
+  .hero-inner{padding:88px 20px 48px;}
   .gear-box,.closing{padding:28px 20px;}
   .summary-grid,.summary-verdict{padding:0 20px;}
   .summary-verdict{margin:0 20px 24px;}
@@ -145,7 +158,25 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
 </head>
 <body>
 
-<header class="hero">
+<!-- ── 고정 네비게이션 바 ── -->
+<nav class="sticky-nav visible" id="stickyNav">
+  <div class="sticky-nav-inner wrap">
+    <span class="sticky-nav-menu">MENU</span>
+    <div class="sticky-nav-links">
+      <a href="#sec-top"     class="snl">맨 위</a>
+      <a href="#sec-summary" class="snl">요약</a>
+      <a href="#sec-spec"    class="snl">제원</a>
+      <a href="#sec-traj"    class="snl">수중 궤적</a>
+      <a href="#sec-bite"    class="snl">입질 분포</a>
+      <a href="#sec-rating"  class="snl">평가</a>
+      <a href="#sec-gallery" class="snl">갤러리</a>
+      <a href="#sec-closing" class="snl">종합</a>
+      <a href="#sec-next"    class="snl">다음</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="sec-top">
   <div class="hero-inner">
     <div class="hero-avatar">
       <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/data/prof.PNG" alt="낚시대장 프로필">
@@ -162,7 +193,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   </svg>
 </header>
 
-<section class="summary">
+<section class="summary" id="sec-summary">
   <div class="summary-head-outer">
     <div class="summary-head wrap">
       <span class="summary-head-label">라인 리뷰 요약</span>
@@ -222,7 +253,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   </div><!-- wrap -->
 </section>
 
-<main class="article wrap">
+<main class="article wrap" id="sec-spec">
 
   <div class="sec-title">들어가며</div>
   <p>관리형 저수지 플라이낚시에서 수심 6미터라는 환경은 라인 선택의 폭을 좁힌다. 인디케이터를 달고 플로팅 라인으로 6미터 수심을 공략하는 방식은 캐스팅 자체가 부담이고, 인디케이터 아래로 리더를 길게 내려도 플라이가 자연스럽게 바닥에 머무르게 하기 어렵다. SA Sonar Titan 3D i/3/5는 그 답을 트리플 덴시티 구조로 풀어낸 라인이다.</p>
@@ -274,7 +305,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
     <cite>CADDIS-GR · 낚시대장 · 두 시즌 운용 기록</cite>
   </div>
 
-  <div class="sec-title">수중 궤적 분석</div>
+  <div class="sec-title" id="sec-traj">수중 궤적 분석</div>
   <p>동일 조건(15m 캐스팅, 25카운트, 느린 8자 리트리브, 총 2분30초)에서 i/3/5 라인의 수중 궤적을 두 시즌 운용 중 반복 관찰된 패턴을 바탕으로 모델화했다. 정확한 수중 촬영 데이터가 아니라, 캐스팅 거리·카운트다운·행마커 도달 시점·입질 위치를 바탕으로 재구성한 운용 모델이다.</p>
 
   <div class="traj-wrap">
@@ -386,7 +417,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
     </svg>
   </div>
 
-  <div class="sec-title">입질 분포 분석</div>
+  <div class="sec-title" id="sec-bite">입질 분포 분석</div>
   <p>두 시즌 운용을 통해 반복적으로 확인된 구간별 입질 체감 비율이다. 정확한 계량 통계라기보다, 같은 수역·같은 라인·유사한 리트리브 조건에서 반복된 현장 패턴으로 보는 것이 적절하다.</p>
   <div class="bite-dist">
     <div class="bite-head">구간별 입질 분포 · 두 시즌 운용 체감 비율</div>
@@ -410,7 +441,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   </div>
   <p>이 반복 관찰이 시사하는 바는 분명하다. 관리형 저수지 특성상 바닥 지형과 가두리·그물 구조가 만나는 경계부가 생기고, 이 경계가 송어의 바닥권 체류 지점으로 작동했을 가능성이 있다. 또한 싱킹라인이 바닥을 수평적으로 훑고 오다가 발앞에서 수직 상승으로 전환되는 위치·방향 변화가 입질 트리거로 작동했을 가능성이 높다.</p>
 
-  <div class="sec-title">항목별 평가</div>
+  <div class="sec-title" id="sec-rating">항목별 평가</div>
   <div class="rating-grid">
     <div class="rating-item"><div class="rating-val gold">9.5</div><div class="rating-cat">바텀 도달력</div></div>
     <div class="rating-item"><div class="rating-val">9.0</div><div class="rating-cat">캐스팅성</div></div>
@@ -421,7 +452,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   </div>
 
   <!-- 갤러리 -->
-  <div class="sec-title" style="margin-top:40px;">Gallery · 한터낚시터</div>
+  <div class="sec-title" id="sec-gallery" style="margin-top:40px;">Gallery · 한터낚시터</div>
   <div class="gallery-grid">
     <div class="gallery-item" onclick="openLb(0)">
       <img src="https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout02.JPEG" alt="한터낚시터 송어 01" loading="lazy">
@@ -448,7 +479,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
   <button onclick="event.stopPropagation();moveLb(1)" style="position:fixed;right:24px;top:50%;transform:translateY(-50%);background:none;border:1px solid rgba(255,255,255,.25);color:#fff;font-size:22px;width:44px;height:44px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;">›</button>
 </div>
 
-<div class="closing wrap">
+<div class="closing wrap" id="sec-closing">
   <div class="sec-title">종합 평가</div>
   <span class="sub-lbl">포지셔닝</span>
   <p>SA Sonar Titan 3D i/3/5는 관리형 저수지 6미터 바닥 공략에 있어 두 시즌 경험을 통해 확인한 바로는 현재까지 가장 안정적인 도구다. 트리플 덴시티 구조가 만들어내는 직선형 수중 자세는 바닥을 단시간에 정확히 찍는 능력을 안정적으로 제공하며, AST 코팅이 부여하는 슬라이딩 특성은 캐스팅 거리와 픽업 능력 모두에서 실질적인 이점을 만든다.</p>
@@ -458,7 +489,7 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
 </div>
 
 <!-- ── NEXT: i/2/3 비교 섹션 ── -->
-<section class="next-section">
+<section class="next-section" id="sec-next">
   <div class="wrap">
     <div class="next-eyebrow">NEXT · 다음 이야기</div>
     <h2 class="next-title">SA Sonar Titan 3D <em>i/2/3</em> — 중층을 향한 느린 탐색</h2>
@@ -634,6 +665,36 @@ footer p{font-family:'DM Mono',monospace;font-size:11px;}
 
 
 <script>
+// ── sticky nav 스크롤 제어 ──
+const stickyNav = document.getElementById('stickyNav');
+const hero = document.getElementById('sec-top');
+const navLinks = document.querySelectorAll('.snl');
+const sections = ['sec-top','sec-summary','sec-spec','sec-traj','sec-bite','sec-rating','sec-gallery','sec-closing','sec-next'];
+
+window.addEventListener('scroll', () => {
+  // 현재 섹션 active
+  let current = sections[0];
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if(el && window.scrollY >= el.offsetTop - 80) current = id;
+  });
+  navLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+});
+
+// 부드러운 스크롤
+navLinks.forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if(target){
+      const y = target.getBoundingClientRect().top + window.pageYOffset - 58;
+      window.scrollTo({top:y, behavior:'smooth'});
+    }
+  });
+});
+
 const LB_ITEMS = [
   { src:'https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout02.JPEG', cap:'한터낚시터 · 2025.05.01' },
   { src:'https://raw.githubusercontent.com/CADDIS-GR/fishing-log/main/images/0501/0501-Trout21.JPEG', cap:'한터낚시터 · 2025.05.01' },
