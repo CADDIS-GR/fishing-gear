@@ -1,453 +1,1146 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>플라이 타잉 소품 및 장비 아카이브</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .gear-card { transition: all 0.3s ease; }
-        .gear-card:hover { transform: translateY(-4px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1); }
-        .hero-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                        url('https://caddis-gr.github.io/fishing-gear/images/hardy-reel.jpg') center/cover no-repeat;
-            min-height: 450px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CADDIS-GR — 플라이낚시 기어 아카이브</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700;1,800&family=DM+Mono:wght@400;500&family=Noto+Sans+KR:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:           #f5f2ec;
+      --bg-hover:     #ede8e0;
+      --bg-inset:     #faf8f4;
+      --bg-header:    #f0ece4;
+      --border:       #d8d0c0;
+      --border-soft:  #e0d8c8;
+      --border-faint: #ede8e0;
+      --text-pri:     #1a1917;
+      --text-sec:     #4a4640;
+      --text-ter:     #6a6460;
+      --text-dim:     #a09880;
+      --text-ghost:   #c8c0b0;
+      --gold:         #8b6914;
+      --gold-border:  #d8c898;
+      --gold-bg:      #f8f0dc;
+      --serif:        'Playfair Display', Georgia, serif;
+      --mono:         'DM Mono', 'Courier New', monospace;
+      --sans:         'Noto Sans KR', sans-serif;
+
+      /* ── Section color tokens ── */
+      /* Fly Lines — Steel Blue */
+      --c-line:        #1a4f7a;
+      --c-line-mid:    #2a6fa0;
+      --c-line-border: #9dc4e0;
+      --c-line-bg:     #e8f3fb;
+      --c-line-hover:  #daedf8;
+      --c-line-bar:    #b8d8f0;
+      --c-line-accent: #e4f2fa;
+
+      /* Rods & Reels — Forest Green */
+      --c-rod:         #1e5c35;
+      --c-rod-mid:     #2d7f4e;
+      --c-rod-border:  #8ecba6;
+      --c-rod-bg:      #e6f5ec;
+      --c-rod-hover:   #d6eddf;
+      --c-rod-bar:     #a8d8bc;
+      --c-rod-accent:  #e0f2e8;
+
+      /* Accessories — Terracotta */
+      --c-acc:         #7a2e1a;
+      --c-acc-mid:     #a84030;
+      --c-acc-border:  #e0a090;
+      --c-acc-bg:      #faf0ec;
+      --c-acc-hover:   #f4e4de;
+      --c-acc-bar:     #e8c0b0;
+      --c-acc-accent:  #f8ece8;
+
+      /* Guides — Slate */
+      --c-guide:       #2e3f5c;
+      --c-guide-mid:   #3d5478;
+      --c-guide-border:#9aaac8;
+      --c-guide-bg:    #eaecf5;
+      --c-guide-hover: #dde0ef;
+      --c-guide-bar:   #b8c0da;
+      --c-guide-accent:#e8eaf4;
+    }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text-pri);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      font-size: 15px;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── MASTHEAD ── */
+    .masthead {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      border-bottom: 2px solid var(--text-pri);
+      background: var(--bg);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .mast-logo {
+      font-family: var(--serif);
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--text-pri);
+      line-height: 1;
+    }
+    .mast-logo em { font-style: italic; color: var(--gold); }
+    .mast-tagline {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .mast-right { display: flex; align-items: center; gap: 24px; }
+    .mast-issue {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      text-align: right;
+    }
+    .mast-issue b {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-sec);
+      letter-spacing: 0;
+      margin-bottom: 2px;
+    }
+    .mast-nav { display: flex; align-items: center; gap: 6px; }
+    .mast-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-ter);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s, background .2s;
+      background: none;
+    }
+    .mast-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .mast-btn.primary {
+      background: var(--text-pri);
+      color: var(--bg);
+      border-color: var(--text-pri);
+    }
+    .mast-btn.primary:hover { background: var(--gold); border-color: var(--gold); }
+
+    /* ── SEARCH ── */
+    .search-wrap {
+      padding: 14px 40px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-header);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .search-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .search-input {
+      flex: 1;
+      max-width: 520px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text-pri);
+      font-family: var(--sans);
+      font-size: 13px;
+      padding: 8px 14px;
+      border-radius: 3px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .search-input::placeholder { color: var(--text-ghost); }
+    .search-input:focus { border-color: var(--gold); }
+    .search-count {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-left: auto;
+    }
+    .search-count b { color: var(--gold); }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-lead {
+      padding: 48px 40px;
+      border-right: 1px solid var(--border);
+    }
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .hero-headline {
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.5px;
+      color: var(--text-pri);
+      margin-bottom: 12px;
+    }
+    .hero-headline em { font-style: italic; color: var(--gold); }
+    .hero-sub {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-ter);
+      line-height: 1.8;
+      margin-bottom: 32px;
+      max-width: 400px;
+    }
+
+    /* 4-line chart */
+    .line-system {
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg-inset);
+    }
+    .ls-header {
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--border-soft);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg-header);
+    }
+    .ls-header-title {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .ls-badge {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-bg);
+      padding: 2px 8px;
+      border-radius: 2px;
+    }
+    .ls-row {
+      display: grid;
+      grid-template-columns: 28px 1fr 96px 64px;
+      align-items: center;
+      padding: 11px 18px;
+      border-bottom: 1px solid var(--border-faint);
+      transition: background .15s;
+    }
+    .ls-row:last-child { border-bottom: none; }
+    .ls-row:hover { background: var(--bg-hover); }
+    .ls-num {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-ghost);
+    }
+    .ls-bar-wrap { padding: 0 14px; }
+    .ls-label {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-sec);
+      margin-bottom: 5px;
+    }
+    .ls-bar { height: 3px; border-radius: 2px; background: var(--border-soft); overflow: hidden; }
+    .ls-fill { height: 100%; border-radius: 2px; }
+    .c-float   { background: linear-gradient(90deg, #4a8a68, #7ab894); }
+    .c-inter   { background: linear-gradient(90deg, #8b6914, #c8a840); }
+    .c-para    { background: linear-gradient(90deg, #3a6a84, #4a7a94); }
+    .c-sinking { background: linear-gradient(90deg, #4a7a94, #8b6914); }
+    .ls-spec {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--text-dim);
+      text-align: right;
+    }
+    .ls-spec b { display: block; color: var(--text-sec); font-size: 9px; margin-bottom: 1px; }
+    .ls-zone {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--text-ghost);
+      text-align: right;
+    }
+
+    /* Hero right */
+    .hero-side { display: flex; flex-direction: column; }
+    .hero-featured {
+      flex: 1;
+      padding: 36px 32px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background .2s;
+      display: block;
+    }
+    .hero-featured:hover { background: var(--bg-hover); }
+    .hf-eyebrow {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .hf-brand {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--text-ter);
+      text-transform: uppercase;
+      margin-bottom: 7px;
+    }
+    .hf-title {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 800;
+      color: var(--text-pri);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .hf-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 12px; }
+    .hf-tag {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-bg);
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+    .hf-excerpt { font-size: 13px; font-weight: 500; color: var(--text-ter); line-height: 1.75; }
+    .hf-score {
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+    .hf-score b { color: var(--gold); font-size: 15px; }
+
+    .hero-side-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .hsg-item {
+      padding: 22px;
+      border-right: 1px solid var(--border);
+      cursor: pointer;
+      transition: background .2s;
+      display: block;
+    }
+    .hsg-item:last-child { border-right: none; }
+    .hsg-item:hover { background: var(--bg-hover); }
+    .hsg-brand {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .hsg-title {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-sec);
+      line-height: 1.3;
+      margin-bottom: 7px;
+    }
+    .hsg-tags { display: flex; flex-wrap: wrap; gap: 3px; margin-bottom: 7px; }
+    .hsg-tag {
+      font-family: var(--mono);
+      font-size: 7px;
+      font-weight: 500;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-bg);
+      padding: 1px 5px;
+      border-radius: 2px;
+    }
+    .hsg-arrow {
+      font-size: 11px;
+      color: var(--text-ghost);
+      transition: color .2s, transform .2s;
+      display: block;
+    }
+    .hsg-item:hover .hsg-arrow { color: var(--gold); transform: translateX(4px); }
+
+    /* ── SECTION DIVIDER ── */
+    .sec-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 40px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-header);
+    }
+    .sec-label {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.24em;
+      color: var(--gold);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .sec-line { flex: 1; height: 1px; background: var(--border); }
+    .sec-count {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+
+    /* ── CATALOG GRID ── */
+    .catalog { display: grid; grid-template-columns: repeat(3, 1fr); }
+
+    .cat-card {
+      padding: 24px 28px;
+      border-right: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: background .18s;
+      display: block;
+    }
+    .cat-card:hover { background: var(--bg-hover); }
+    .cat-card:nth-child(3n) { border-right: none; }
+
+    .cc-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .cc-brand {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+    }
+    .cc-badge {
+      font-family: var(--mono);
+      font-size: 7px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      padding: 2px 7px;
+      border-radius: 2px;
+    }
+    .cc-badge.new   { color: var(--bg); background: var(--gold); }
+    .cc-badge.v2    { color: #185a9a; border: 1px solid #b0d0f0; background: #e8f2fc; }
+    .cc-badge.guide { color: #2a6a4a; border: 1px solid #a0d4b8; background: #e4f4ec; }
+
+    .cc-title {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--text-pri);
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .cc-specs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 10px; }
+    .cc-spec {
+      font-family: var(--mono);
+      font-size: 7px;
+      font-weight: 500;
+      color: var(--gold);
+      border: 1px solid var(--gold-border);
+      background: var(--gold-bg);
+      padding: 2px 7px;
+      border-radius: 2px;
+      letter-spacing: 0.08em;
+    }
+    .cc-desc { font-size: 13px; font-weight: 500; color: var(--text-ter); line-height: 1.7; margin-bottom: 14px; }
+    .cc-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 10px;
+      border-top: 1px solid var(--border-faint);
+    }
+    .cc-score {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--text-dim);
+    }
+    .cc-score b { color: var(--gold); font-size: 12px; }
+    .cc-arrow {
+      font-size: 11px;
+      color: var(--text-ghost);
+      transition: color .18s, transform .18s;
+    }
+    .cat-card:hover .cc-arrow { color: var(--gold); transform: translateX(4px); }
+
+    /* ── GUIDE STRIP ── */
+    .guide-grid { display: grid; grid-template-columns: 1fr 1fr; }
+    .gc {
+      padding: 22px 32px;
+      border-right: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+      cursor: pointer;
+      transition: background .18s;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .gc:nth-child(2n) { border-right: none; }
+    .gc:hover { background: var(--bg-hover); }
+    .gc-icon {
+      font-size: 20px;
+      color: var(--border);
+      flex-shrink: 0;
+      width: 30px;
+      text-align: center;
+      padding-top: 2px;
+    }
+    .gc-brand {
+      font-family: var(--mono);
+      font-size: 8px;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .gc-title {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-pri);
+      margin-bottom: 5px;
+      line-height: 1.3;
+    }
+    .gc-desc { font-size: 13px; font-weight: 500; color: var(--text-ter); line-height: 1.65; }
+
+    /* ── FOOTER ── */
+    .mg-footer {
+      padding: 28px 40px;
+      border-top: 2px solid var(--text-pri);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg);
+    }
+    .footer-quote {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-ter);
+    }
+    .footer-meta {
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      color: var(--text-ghost);
+      letter-spacing: 0.12em;
+      text-align: right;
+    }
+    .footer-meta a {
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color .2s, border-color .2s;
+    }
+    .footer-meta a:hover { color: var(--gold); border-color: var(--gold); }
+
+    /* ══════════════════════════════════════
+       SECTION COLOR THEMES
+    ══════════════════════════════════════ */
+
+    /* Fly Lines — Steel Blue */
+    .theme-line .sec-divider {
+      background: var(--c-line-accent);
+      border-color: var(--c-line-border);
+    }
+    .theme-line .sec-label { color: var(--c-line); }
+    .theme-line .sec-line  { background: var(--c-line-border); }
+    .theme-line .cat-card  {
+      border-color: var(--c-line-bar);
+      background: var(--c-line-bg);
+    }
+    .theme-line .cat-card:hover { background: var(--c-line-hover); }
+    .theme-line .cc-brand  { color: var(--c-line-mid); }
+    .theme-line .cc-title  { color: var(--c-line); }
+    .theme-line .cc-spec   { color: var(--c-line); border-color: var(--c-line-border); background: var(--c-line-accent); }
+    .theme-line .cc-score b{ color: var(--c-line); }
+    .theme-line .cc-arrow  { color: var(--c-line-border); }
+    .theme-line .cat-card:hover .cc-arrow { color: var(--c-line); }
+    .theme-line .cc-footer { border-color: var(--c-line-bar); }
+    .theme-line .cc-badge.new { background: var(--c-line); color: #fff; }
+
+    /* Rods & Reels — Forest Green */
+    .theme-rod .sec-divider {
+      background: var(--c-rod-accent);
+      border-color: var(--c-rod-border);
+    }
+    .theme-rod .sec-label { color: var(--c-rod); }
+    .theme-rod .sec-line  { background: var(--c-rod-border); }
+    .theme-rod .cat-card  {
+      border-color: var(--c-rod-bar);
+      background: var(--c-rod-bg);
+    }
+    .theme-rod .cat-card:hover { background: var(--c-rod-hover); }
+    .theme-rod .cc-brand  { color: var(--c-rod-mid); }
+    .theme-rod .cc-title  { color: var(--c-rod); }
+    .theme-rod .cc-spec   { color: var(--c-rod); border-color: var(--c-rod-border); background: var(--c-rod-accent); }
+    .theme-rod .cc-score b{ color: var(--c-rod); }
+    .theme-rod .cc-arrow  { color: var(--c-rod-border); }
+    .theme-rod .cat-card:hover .cc-arrow { color: var(--c-rod); }
+    .theme-rod .cc-footer { border-color: var(--c-rod-bar); }
+    .theme-rod .cc-badge.new { background: var(--c-rod); color: #fff; }
+
+    /* Accessories — Terracotta */
+    .theme-acc .sec-divider {
+      background: var(--c-acc-accent);
+      border-color: var(--c-acc-border);
+    }
+    .theme-acc .sec-label { color: var(--c-acc); }
+    .theme-acc .sec-line  { background: var(--c-acc-border); }
+    .theme-acc .gc        {
+      border-color: var(--c-acc-bar);
+      background: var(--c-acc-bg);
+    }
+    .theme-acc .gc:hover  { background: var(--c-acc-hover); }
+    .theme-acc .gc-brand  { color: var(--c-acc-mid); }
+    .theme-acc .gc-title  { color: var(--c-acc); }
+    .theme-acc .gc-icon   { color: var(--c-acc-border); }
+
+    /* Field Guides — Slate */
+    .theme-guide .sec-divider {
+      background: var(--c-guide-accent);
+      border-color: var(--c-guide-border);
+    }
+    .theme-guide .sec-label { color: var(--c-guide); }
+    .theme-guide .sec-line  { background: var(--c-guide-border); }
+    .theme-guide .gc        {
+      border-color: var(--c-guide-bar);
+      background: var(--c-guide-bg);
+    }
+    .theme-guide .gc:hover  { background: var(--c-guide-hover); }
+    .theme-guide .gc-brand  { color: var(--c-guide-mid); }
+    .theme-guide .gc-title  { color: var(--c-guide); }
+    .theme-guide .gc-icon   { color: var(--c-guide-border); }
+
+    /* ══════════════════════════════════════
+       ACCESSIBILITY — minimum font sizes
+       7px / 8px / 9px → 11px minimum
+    ══════════════════════════════════════ */
+    .mast-tagline, .mast-issue, .mast-btn,
+    .search-label, .search-count,
+    .hero-eyebrow, .ls-header-title, .ls-badge,
+    .ls-num, .ls-zone,
+    .sec-label, .sec-count,
+    .hf-eyebrow, .hf-brand, .hf-tags .hf-tag,
+    .hsg-brand, .hsg-tags .hsg-tag,
+    .cc-brand, .cc-badge, .cc-specs .cc-spec, .cc-score,
+    .gc-brand,
+    .footer-meta   { font-size: 11px; }
+
+    .ls-spec       { font-size: 11px; }
+    .ls-spec b     { font-size: 11px; }
+    .ls-label      { font-size: 12px; }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — Tablet ≤ 900px
+    ══════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .masthead         { padding: 16px 24px; }
+      .mast-issue       { display: none; }
+
+      .search-wrap      { padding: 12px 24px; }
+      .search-input     { max-width: 100%; }
+
+      .hero             { grid-template-columns: 1fr; }
+      .hero-lead        { padding: 36px 24px; border-right: none; border-bottom: 1px solid var(--border); }
+      .hero-headline    { font-size: 36px; }
+      .hero-side-grid   { grid-template-columns: 1fr 1fr; }
+
+      .sec-divider      { padding: 12px 24px; }
+
+      .catalog          { grid-template-columns: repeat(2, 1fr); }
+      .cat-card         { padding: 20px 20px; }
+      .cat-card:nth-child(3n)  { border-right: 1px solid var(--border-soft); }
+      .cat-card:nth-child(2n)  { border-right: none; }
+
+      .guide-grid       { grid-template-columns: 1fr 1fr; }
+      .gc               { padding: 18px 20px; }
+
+      .mg-footer        { padding: 20px 24px; }
+    }
+
+    /* ══════════════════════════════════════
+       RESPONSIVE — Mobile ≤ 600px
+    ══════════════════════════════════════ */
+    @media (max-width: 600px) {
+      .masthead         { padding: 14px 18px; gap: 12px; flex-wrap: wrap; }
+      .mast-logo        { font-size: 24px; }
+      .mast-tagline     { font-size: 10px; }
+      .mast-nav         { gap: 4px; }
+      .mast-btn         { padding: 5px 10px; font-size: 10px; }
+
+      .search-wrap      { padding: 10px 18px; gap: 8px; }
+      .search-label     { display: none; }
+
+      .hero-lead        { padding: 28px 18px; }
+      .hero-headline    { font-size: 30px; }
+      .hero-sub         { font-size: 13px; }
+      .hero-featured    { padding: 24px 18px; }
+      .hf-title         { font-size: 22px; }
+      .hero-side-grid   { grid-template-columns: 1fr; }
+      .hsg-item         { border-right: none !important; border-bottom: 1px solid var(--border); }
+      .hsg-item:last-child { border-bottom: none; }
+
+      .ls-row           { grid-template-columns: 22px 1fr 72px; }
+      .ls-zone          { display: none; }
+
+      .sec-divider      { padding: 11px 18px; gap: 10px; }
+      .sec-label        { letter-spacing: 0.14em; }
+
+      .catalog          { grid-template-columns: 1fr; }
+      .cat-card         { padding: 18px 18px; border-right: none !important; }
+
+      .guide-grid       { grid-template-columns: 1fr; }
+      .gc               { padding: 16px 18px; border-right: none !important; }
+
+      .mg-footer        { padding: 18px 18px; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .footer-quote     { font-size: 13px; }
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen">
-    <div class="container mx-auto px-4 py-8 max-w-7xl">
+<body>
 
-        <header class="hero-header rounded-2xl shadow-2xl p-12 mb-8 relative overflow-hidden">
-            <div class="relative z-10 text-white">
-                <div class="flex items-center gap-4 mb-6">
-                    <span class="text-6xl drop-shadow-lg">🎣</span>
-                    <div>
-                        <h1 class="text-5xl font-bold drop-shadow-lg mb-2">타잉 소품 및 장비 리뷰</h1>
-                        <p class="text-xl drop-shadow-md">플라이 낚시 타잉 장비에 대한 상세 리뷰 모음</p>
-                    </div>
-                </div>
-                <div class="flex gap-3 mt-6">
-                    <a href="https://github.com/CADDIS-GR/fishing-gear" target="_blank" 
-                       class="px-6 py-3 bg-white/20 backdrop-blur-sm text-white rounded-lg hover:bg-white/30 transition border border-white/30 font-medium shadow-lg">
-                        📁 GitHub 저장소
-                    </a>
-                    <a href="#reviews" 
-                       class="px-6 py-3 bg-white text-slate-800 rounded-lg hover:bg-slate-100 transition font-medium shadow-lg">
-                        📖 리뷰 보기
-                    </a>
-                </div>
-            </div>
-        </header>
-
-        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
-            <input type="text" id="searchInput" placeholder="검색어를 입력하세요..." 
-                   class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                   oninput="filterGear()">
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
-                <div class="text-3xl font-bold text-blue-600">18</div>
-                <div class="text-slate-600 mt-1">전체 리뷰</div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
-                <div class="text-3xl font-bold text-green-600">7</div>
-                <div class="text-slate-600 mt-1">브랜드</div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
-                <div class="text-3xl font-bold text-purple-600">⭐ 4.9</div>
-                <div class="text-slate-600 mt-1">평균 평점</div>
-            </div>
-            <div class="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition">
-                <div class="text-3xl font-bold text-orange-600">2026</div>
-                <div class="text-slate-600 mt-1">최근 업데이트</div>
-            </div>
-        </div>
-
-        <div id="reviews"></div>
-        <div id="gearGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <!-- T&T Tech Gloves - NEW -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-indigo-300">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Thomas &amp; Thomas</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Tech Gloves</h3>
-                    <p class="text-xs text-indigo-500 font-mono mb-3">UPF 50+ · Anti-Slip Microfiber · Fingerless · S/M</p>
-                    <p class="text-slate-600 mb-4 text-sm">
-                        하루 종일 캐스팅하는 손등을 위한 선택. UPF 50+ 원단으로 자외선을 물리적으로 차단하고,
-                        앤티슬립 마이크로파이버 패드가 코르크 그립을 보조한다.
-                        핑거리스 컷으로 라인 감각과 훅셋 반응을 유지하면서,
-                        Pull Loop 디테일이 장갑의 수명을 지킨다.
-                    </p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(미사용 · 언박싱 기준)</span>
-                    </div>
-                    <a href="reviews/tt-tech-gloves-review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- SA Sonar Titan 3D i/3/5 -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-500">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Sonar Titan 3D i/3/5</h3>
-                    <p class="text-xs text-blue-500 font-mono mb-3">WF6S · Triple Density · i / Sink 3 / Sink 5</p>
-                    <p class="text-slate-600 mb-4 text-sm">
-                        두 시즌 한터낚시터 바텀 공략의 주력 라인. 25카운트에 4m권 도달,
-                        리트리브 싱킹으로 착저 후 수직 상승 구간에서 입질 70%+.
-                        트리플 덴시티 구조가 만들어내는 직선형 수중 궤적이 핵심.
-                    </p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(9.2/10)</span>
-                    </div>
-                    <a href="reviews/sa-sonar-titan-i3-5-review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- SA Sonar Stillwater Parabolic Sink WF5S -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-orange-400">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Stillwater Parabolic Sink</h3>
-                    <p class="text-xs text-orange-500 font-mono mb-3">WF5S · Sink 3/5/3 · Seamless Density</p>
-                    <p class="text-slate-600 mb-4 text-sm">
-                        U형 침강 구조로 바닥 바로 위에 플라이를 띄우는 라인. 싱킹라인 조건에서
-                        Chironomid Larva를 바닥권에 넣을 수 있다는 것만으로도 큰 수확.
-                        하나의 캐스팅으로 전층 통과 → 바닥 탐색 → 수직상승의 다양한 궤적을 만들어낸다.
-                    </p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(9.2/10)</span>
-                    </div>
-                    <a href="reviews/sa-parabolic-sink-review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- T&T Helix 863-4 -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-indigo-400">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Thomas &amp; Thomas</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Helix 863-4</h3>
-                    <p class="text-xs text-indigo-500 font-mono mb-3">#3 · 8'6" · Medium Action · Graphite</p>
-                    <p class="text-slate-600 mb-4 text-sm">
-                        처음으로 작정하고 고른 드라이플라이 전용 로드. T&T 미디엄 계열 빈티지 클래식.
-                        Paradigm과 같은 DNA를 가지면서 더 가볍고 더 섬세한 #3 피네스 피싱의 세계.
-                        RIO Elite Technical Trout WF4F + 6x~7x 플루오로카본 세팅.
-                    </p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/TT_Helix_863-4_Review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- Airflo Euro Nymph Short 22ft -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-teal-400">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">Airflo</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Euro Nymph Short 22ft</h3>
-                    <p class="text-slate-600 mb-4 text-sm">한터낚시터 네오스타일 드리프트 채비 테스트. Vision Onki 3100-4 + 롱리더 시스템.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/airflo_euro_nymph_short_review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- Airflo Sixth Sense 2 DI5 -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-teal-400">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">Airflo</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Sixth Sense 2 WF6·7 DI5</h3>
-                    <p class="text-slate-600 mb-4 text-sm">100% PVC Free PU 소재. 균일 5ips 풀싱킹. Titan 3D 대비 균일침하 비교 검증용 서브 라인.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/Airflo_Sixth_Sense2_DI5_Review.html"
-                       class="inline-block w-full text-center px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition">
-                        상세 리뷰 보기
-                    </a>
-                </div>
-            </div>
-
-            <!-- Sink 25 Cold Manual v2 -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-400">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">🆕</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-1">Sink 25 Cold Manual</h3>
-                    <span class="inline-block px-2 py-0.5 bg-blue-600 text-white text-xs rounded font-bold mb-3">v2</span>
-                    <p class="text-slate-600 mb-4 text-sm">한터지 바닥권 풀싱킹 체계의 서브 라인으로 재정의. 10~12m 단거리 투입 프로토콜.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <div class="flex gap-2">
-                        <a href="reviews/sink25cold_manual_v2.html" 
-                           class="inline-block flex-1 text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition text-sm font-bold">v2 보기</a>
-                        <a href="reviews/260108_sonar_sink_manual.html" 
-                           class="inline-block px-4 py-2 bg-slate-100 text-slate-500 rounded-lg hover:bg-slate-200 transition text-sm">v1</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 싱킹 플라이라인 드레싱 -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-blue-300">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">현장 가이드</span>
-                        <span class="text-2xl">📋</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">싱킹 플라이라인 드레싱 완전정복</h3>
-                    <p class="text-slate-600 mb-4 text-sm">립밤부터 303 Aerospace까지 — 현장에서 바로 쓸 수 있는 드레싱 솔루션.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/flyline_dressing_guide.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- RIO Elite Sub-Surface CamoLux WF5I -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-red-200">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">RIO</span>
-                        <span class="text-2xl">🎣</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Elite Sub-Surface CamoLux WF5I</h3>
-                    <p class="text-slate-600 mb-4 text-sm">카모 패턴으로 물속에서 존재감을 낮추는 인터미디어트 싱킹 라인. 스텔스 솔루션.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/RIO_Elite_CamoLux_WF5I_Review.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- RIO Elite Technical Trout WF4F -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-red-200">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">RIO</span>
-                        <span class="text-2xl">🎣</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Elite Technical Trout WF4F</h3>
-                    <p class="text-slate-600 mb-4 text-sm">가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 + RIO Elite Technical Trout WF4F 조합.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/RIO_Elite_Technical_Trout_WF4F.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- Vision Onki Ultimate Finesse -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden border-2 border-emerald-200">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-sm font-medium">Vision</span>
-                        <span class="text-2xl">✨</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Vision Onki - Ultimate Finesse</h3>
-                    <p class="text-slate-600 mb-4 text-sm">부드럽고 섬세한 피네스피싱의 완성. Vision Onki 3100-4 + Hardy Marquis LWT 조합.</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/Vision_Onki_Ultimate_Finesse.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- Paradigm Bouglé Gold -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-yellow-100 text-yellow-700 rounded-full text-sm font-medium">Paradigm</span>
-                        <span class="text-2xl">🎯</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Bouglé Gold</h3>
-                    <p class="text-slate-600 mb-4 text-sm">T&T Paradigm 590-4 + Hardy Bouglé 3 1/4</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/Paradigm_Bouglé_Gold.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-yellow-600 text-white rounded-lg hover:bg-yellow-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- Loon Outdoors: Deep Soft Weight -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Loon Outdoors</span>
-                        <span class="text-2xl">📦</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Deep Soft Weight</h3>
-                    <p class="text-slate-600 mb-4 text-sm">미세 수정 조절용 텅스텐 점토 웨이트</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/251219-Loon_Outdoors_Deep_Soft_Weight.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- TMC Prismatic Thread -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">TMC</span>
-                        <span class="text-2xl">🧵</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Prismatic Thread</h3>
-                    <p class="text-slate-600 mb-4 text-sm">빛 반사 특징이 뛰어난 특수 스레드</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(4/5)</span>
-                    </div>
-                    <a href="reviews/251224-TMC_Prismatic_Thread.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- SA SONAR: Manual (KR) -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">📘</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Sink Manual (KR)</h3>
-                    <p class="text-slate-600 mb-4 text-sm">SA SONAR 싱크 라인 매뉴얼 (한글)</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/260108_sonar_sink_manual.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- SA SONAR: Manual (EN) -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">📗</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Sink Manual (EN)</h3>
-                    <p class="text-slate-600 mb-4 text-sm">SA SONAR 싱크 라인 매뉴얼 (영문)</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/260108_sonar_sink_manual_EN.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- SA SONAR: STILLWATER CLEAR EMERGER TIP -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">🎣</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">STILLWATER CLEAR EMERGER TIP</h3>
-                    <p class="text-slate-600 mb-4 text-sm">SA사의 이머저 전용 라인</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-            <!-- SA Parabolic Sink Line -->
-            <div class="gear-card bg-white rounded-2xl shadow-lg overflow-hidden">
-                <div class="p-6">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm font-medium">SA SONAR</span>
-                        <span class="text-2xl">📏</span>
-                    </div>
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2">Parabolic Sink Line</h3>
-                    <p class="text-slate-600 mb-4 text-sm">Rio사의 U프로파일 플라이 라인</p>
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-yellow-400">⭐⭐⭐⭐⭐</span>
-                        <span class="text-sm text-slate-500">(5/5)</span>
-                    </div>
-                    <a href="reviews/Parabolic_Sink_Line.html" 
-                       class="inline-block w-full text-center px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">상세 리뷰 보기</a>
-                </div>
-            </div>
-
-        </div>
-
-        <footer class="mt-12 text-center text-slate-600 pb-8">
-            <p class="mb-2">🎣 플라이 낚시를 사랑하는 이들을 위한 타잉 장비 아카이브</p>
-            <p class="text-sm">관리형낚시터(저수지)에서의 플라이낚시 경험 공유</p>
-            <p class="text-xs mt-4 text-slate-400">Last updated: May 2026</p>
-        </footer>
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div>
+      <div class="mast-logo">CADDIS<em>-GR</em></div>
+      <div class="mast-tagline">Stillwater Fly Fishing · Gear Archive</div>
     </div>
+    <div class="mast-right">
+      <div class="mast-issue"><b>Vol.04</b>MAY 2026</div>
+      <div class="mast-nav">
+        <a href="https://github.com/CADDIS-GR/fishing-gear" target="_blank" class="mast-btn">⌥ GitHub</a>
+        <button class="mast-btn primary" onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">리뷰 보기</button>
+      </div>
+    </div>
+  </header>
 
-    <script>
-        function filterGear() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
-            const cards = document.querySelectorAll('.gear-card');
-            cards.forEach(card => {
-                const text = card.textContent.toLowerCase();
-                card.style.display = text.includes(searchTerm) ? 'block' : 'none';
-            });
-        }
-    </script>
+  <!-- SEARCH -->
+  <div class="search-wrap">
+    <span class="search-label">Search</span>
+    <input class="search-input" id="searchInput" type="text"
+           placeholder="브랜드, 모델명, 스펙 검색 — WF6S, DI5, Parabolic, Airflo..."
+           oninput="filterAll()">
+    <span class="search-count" id="searchCount"></span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-lead">
+      <div class="hero-eyebrow">System Overview</div>
+      <div class="hero-headline">4-Line<br><em>Stillwater</em><br>System</div>
+      <div class="hero-sub">수면부터 수평 바텀까지 — 한터낚시터 6m 수심을 커버하는 네 개의 라인 포지셔닝. 각 라인은 역할이 겹치지 않도록 설계되었다.</div>
+      <div class="line-system">
+        <div class="ls-header">
+          <span class="ls-header-title">Line Deployment Chart</span>
+          <span class="ls-badge">6m Stillwater</span>
+        </div>
+        <div class="ls-row">
+          <span class="ls-num">01</span>
+          <div class="ls-bar-wrap">
+            <div class="ls-label">T&amp;T Helix 863-4 + RIO Elite WF4F</div>
+            <div class="ls-bar"><div class="ls-fill c-float" style="width:16%"></div></div>
+          </div>
+          <div class="ls-spec"><b>WF4F</b>Floating</div>
+          <div class="ls-zone">Surface</div>
+        </div>
+        <div class="ls-row">
+          <span class="ls-num">02</span>
+          <div class="ls-bar-wrap">
+            <div class="ls-label">RIO Elite CamoLux WF5I</div>
+            <div class="ls-bar"><div class="ls-fill c-inter" style="width:36%"></div></div>
+          </div>
+          <div class="ls-spec"><b>WF5I</b>Intermediate</div>
+          <div class="ls-zone">0–1m</div>
+        </div>
+        <div class="ls-row">
+          <span class="ls-num">03</span>
+          <div class="ls-bar-wrap">
+            <div class="ls-label">SA Sonar Parabolic Sink WF5S</div>
+            <div class="ls-bar"><div class="ls-fill c-para" style="width:74%"></div></div>
+          </div>
+          <div class="ls-spec"><b>S3/5/3</b>U-Profile</div>
+          <div class="ls-zone">Mid→Bot</div>
+        </div>
+        <div class="ls-row">
+          <span class="ls-num">04</span>
+          <div class="ls-bar-wrap">
+            <div class="ls-label">SA Sonar Titan 3D i/3/5</div>
+            <div class="ls-bar"><div class="ls-fill c-sinking" style="width:100%"></div></div>
+          </div>
+          <div class="ls-spec"><b>WF6S</b>i/3/5</div>
+          <div class="ls-zone">Bottom</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-side">
+      <a href="reviews/sa-sonar-titan-i3-5-review.html" class="hero-featured">
+        <div class="hf-eyebrow">★ Editor's Pick</div>
+        <div class="hf-brand">SA SONAR</div>
+        <div class="hf-title">Sonar Titan 3D i/3/5</div>
+        <div class="hf-tags">
+          <span class="hf-tag">WF6S</span>
+          <span class="hf-tag">Triple Density</span>
+          <span class="hf-tag">i / S3 / S5</span>
+        </div>
+        <div class="hf-excerpt">두 시즌 한터낚시터 바텀 공략의 주력 라인. 25카운트에 4m권 도달, 착저 후 수직 상승 구간에서 입질 70%+. 트리플 덴시티 구조가 만들어내는 직선형 수중 궤적이 핵심이다.</div>
+        <div class="hf-score"><b>9.2</b> / 10</div>
+      </a>
+      <div class="hero-side-grid">
+        <a href="reviews/sa-parabolic-sink-review.html" class="hsg-item">
+          <div class="hsg-brand">SA SONAR</div>
+          <div class="hsg-title">Parabolic Sink WF5S</div>
+          <div class="hsg-tags">
+            <span class="hsg-tag">WF5S</span>
+            <span class="hsg-tag">S3/5/3</span>
+            <span class="hsg-tag">U-Profile</span>
+          </div>
+          <span class="hsg-arrow">→</span>
+        </a>
+        <a href="reviews/Airflo_Sixth_Sense2_DI5_Review.html" class="hsg-item">
+          <div class="hsg-brand">Airflo</div>
+          <div class="hsg-title">Sixth Sense 2 DI5</div>
+          <div class="hsg-tags">
+            <span class="hsg-tag">WF6·7</span>
+            <span class="hsg-tag">DI5</span>
+            <span class="hsg-tag">PVC Free</span>
+          </div>
+          <span class="hsg-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div id="reviews"></div>
+
+  <!-- FLY LINES -->
+  <div class="theme-line">
+  <div class="sec-divider" data-section="flyline">
+    <span class="sec-label">Fly Lines</span>
+    <div class="sec-line"></div>
+    <span class="sec-count">8 reviews</span>
+  </div>
+  <div class="catalog" id="grid-flyline">
+
+    <a href="reviews/sa-sonar-titan-i3-5-review.html" class="cat-card"
+       data-cat="flyline" data-kw="sa sonar titan 3d i/3/5 wf6s triple density sinking">
+      <div class="cc-top"><span class="cc-brand">SA SONAR</span><span class="cc-badge new">NEW</span></div>
+      <div class="cc-title">Sonar Titan 3D i/3/5</div>
+      <div class="cc-specs"><span class="cc-spec">WF6S</span><span class="cc-spec">Triple Density</span><span class="cc-spec">i / S3 / S5</span></div>
+      <div class="cc-desc">두 시즌 한터낚시터 바텀 공략의 주력 라인. 25카운트 4m권 도달, 착저 후 수직 상승 구간 입질 70%+.</div>
+      <div class="cc-footer"><span class="cc-score"><b>9.2</b> / 10</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/sa-parabolic-sink-review.html" class="cat-card"
+       data-cat="flyline" data-kw="sa sonar stillwater parabolic sink wf5s 3/5/3 u-profile chironomid larva">
+      <div class="cc-top"><span class="cc-brand">SA SONAR</span><span class="cc-badge new">NEW</span></div>
+      <div class="cc-title">Stillwater Parabolic Sink</div>
+      <div class="cc-specs"><span class="cc-spec">WF5S</span><span class="cc-spec">Sink 3/5/3</span><span class="cc-spec">U-Profile</span></div>
+      <div class="cc-desc">U형 침강 구조로 바닥 바로 위에 플라이를 띄우는 라인. Chironomid Larva를 싱킹 조건에서 바닥권에 투입.</div>
+      <div class="cc-footer"><span class="cc-score"><b>9.2</b> / 10</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/Airflo_Sixth_Sense2_DI5_Review.html" class="cat-card"
+       data-cat="flyline" data-kw="airflo sixth sense 2 di5 wf6 wf7 pvc free pu 5ips">
+      <div class="cc-top"><span class="cc-brand">Airflo</span><span class="cc-badge new">NEW</span></div>
+      <div class="cc-title">Sixth Sense 2 DI5</div>
+      <div class="cc-specs"><span class="cc-spec">WF6·7</span><span class="cc-spec">DI5</span><span class="cc-spec">PVC Free</span><span class="cc-spec">5ips</span></div>
+      <div class="cc-desc">100% PVC Free PU 소재. 균일 5ips 풀싱킹. Titan 3D 대비 균일침하 비교 검증용 서브 라인.</div>
+      <div class="cc-footer"><span class="cc-score"><b>9.0</b> / 10</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/airflo_euro_nymph_short_review.html" class="cat-card"
+       data-cat="flyline" data-kw="airflo euro nymph short 22ft vision onki 3100 neo drift">
+      <div class="cc-top"><span class="cc-brand">Airflo</span><span class="cc-badge new">NEW</span></div>
+      <div class="cc-title">Euro Nymph Short 22ft</div>
+      <div class="cc-specs"><span class="cc-spec">22ft</span><span class="cc-spec">Euro Nymph</span><span class="cc-spec">Short Head</span></div>
+      <div class="cc-desc">한터낚시터 네오스타일 드리프트 채비 테스트. Vision Onki 3100-4 + 롱리더 시스템.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/RIO_Elite_CamoLux_WF5I_Review.html" class="cat-card"
+       data-cat="flyline" data-kw="rio elite sub-surface camolux wf5i intermediate stealth">
+      <div class="cc-top"><span class="cc-brand">RIO</span></div>
+      <div class="cc-title">Elite Sub-Surface CamoLux</div>
+      <div class="cc-specs"><span class="cc-spec">WF5I</span><span class="cc-spec">Intermediate</span><span class="cc-spec">CamoLux</span></div>
+      <div class="cc-desc">카모 패턴으로 물속 존재감을 낮추는 인터미디어트. 표층 직하를 노리는 스텔스 솔루션.</div>
+      <div class="cc-footer"><span class="cc-score"><b>9.0</b> / 10</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/RIO_Elite_Technical_Trout_WF4F.html" class="cat-card"
+       data-cat="flyline" data-kw="rio elite technical trout wf4f floating finesse">
+      <div class="cc-top"><span class="cc-brand">RIO</span></div>
+      <div class="cc-title">Elite Technical Trout WF4F</div>
+      <div class="cc-specs"><span class="cc-spec">WF4F</span><span class="cc-spec">Floating</span></div>
+      <div class="cc-desc">가볍지만 멀리 날아가는 예술적 턴오버. Vision Onki 3100-4 + RIO Elite Technical Trout WF4F 조합.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/SA_SONAR_STILLWATER_CLEAR_EMERGER_TIP_Line.html" class="cat-card"
+       data-cat="flyline" data-kw="sa sonar stillwater clear emerger tip intermediate">
+      <div class="cc-top"><span class="cc-brand">SA SONAR</span></div>
+      <div class="cc-title">Stillwater Clear Emerger Tip</div>
+      <div class="cc-specs"><span class="cc-spec">Emerger</span><span class="cc-spec">Clear Tip</span></div>
+      <div class="cc-desc">SA사의 이머저 전용 라인. 표층 직하 이머징 패턴 운용에 특화.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/Parabolic_Sink_Line.html" class="cat-card"
+       data-cat="flyline" data-kw="parabolic sink line u-profile sa">
+      <div class="cc-top"><span class="cc-brand">SA SONAR</span></div>
+      <div class="cc-title">Parabolic Sink Line</div>
+      <div class="cc-specs"><span class="cc-spec">U-Profile</span><span class="cc-spec">Sink</span></div>
+      <div class="cc-desc">U프로파일 플라이 라인. Parabolic 구조의 원형.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+  </div>
+
+  </div><!-- /theme-line -->
+
+  <!-- RODS & REELS -->
+  <div class="theme-rod">
+  <div class="sec-divider" data-section="rod">
+    <span class="sec-label">Rods &amp; Reels</span>
+    <div class="sec-line"></div>
+    <span class="sec-count">3 reviews</span>
+  </div>
+  <div class="catalog" id="grid-rod">
+
+    <a href="reviews/TT_Helix_863-4_Review.html" class="cat-card"
+       data-cat="rod" data-kw="thomas thomas t&t helix 863-4 #3 8'6 medium action graphite dryfly">
+      <div class="cc-top"><span class="cc-brand">Thomas &amp; Thomas</span><span class="cc-badge new">NEW</span></div>
+      <div class="cc-title">Helix 863-4</div>
+      <div class="cc-specs"><span class="cc-spec">#3</span><span class="cc-spec">8'6"</span><span class="cc-spec">Medium Action</span><span class="cc-spec">Graphite</span></div>
+      <div class="cc-desc">처음으로 작정하고 고른 드라이플라이 전용 로드. Paradigm과 같은 DNA — 더 가볍고 더 섬세한 #3 피네스의 세계.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/Vision_Onki_Ultimate_Finesse.html" class="cat-card"
+       data-cat="rod" data-kw="vision onki ultimate finesse 3100-4 #3 10ft hardy marquis lwt">
+      <div class="cc-top"><span class="cc-brand">Vision</span></div>
+      <div class="cc-title">Onki — Ultimate Finesse</div>
+      <div class="cc-specs"><span class="cc-spec">#3</span><span class="cc-spec">10'0"</span><span class="cc-spec">3100-4</span></div>
+      <div class="cc-desc">부드럽고 섬세한 피네스피싱의 완성. Hardy Marquis LWT 조합으로 완성.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+    <a href="reviews/Paradigm_Bouglé_Gold.html" class="cat-card"
+       data-cat="rod" data-kw="t&t thomas thomas paradigm 590-4 hardy bougle gold #5 9ft">
+      <div class="cc-top"><span class="cc-brand">T&amp;T × Hardy</span></div>
+      <div class="cc-title">Paradigm 590-4 + Bouglé</div>
+      <div class="cc-specs"><span class="cc-spec">#5</span><span class="cc-spec">9'0"</span><span class="cc-spec">Gold</span></div>
+      <div class="cc-desc">T&T Paradigm 590-4 + Hardy Bouglé 3 1/4. 두 개의 명기가 만난 조합.</div>
+      <div class="cc-footer"><span class="cc-score"><b>5.0</b> / 5</span><span class="cc-arrow">→</span></div>
+    </a>
+
+  </div>
+
+  </div><!-- /theme-rod -->
+
+  <!-- ACCESSORIES -->
+  <div class="theme-acc">
+  <div class="sec-divider" data-section="accessory">
+    <span class="sec-label">Accessories</span>
+    <div class="sec-line"></div>
+    <span class="sec-count">3 reviews</span>
+  </div>
+  <div class="guide-grid" id="grid-accessory">
+
+    <a href="reviews/tt-tech-gloves-review.html" class="gc"
+       data-cat="accessory" data-kw="thomas thomas t&t tech gloves upf50 anti-slip microfiber fingerless">
+      <div class="gc-icon">◈</div>
+      <div>
+        <div class="gc-brand">Thomas &amp; Thomas &nbsp;·&nbsp; <span style="color:var(--gold);font-style:normal">NEW</span></div>
+        <div class="gc-title">Tech Gloves</div>
+        <div class="gc-desc">UPF 50+ · Anti-Slip Microfiber · Fingerless. 하루 종일 캐스팅하는 손을 위한 선택. Pull Loop 디테일.</div>
+      </div>
+    </a>
+
+    <a href="reviews/251219-Loon_Outdoors_Deep_Soft_Weight.html" class="gc"
+       data-cat="accessory" data-kw="loon outdoors deep soft weight tungsten clay">
+      <div class="gc-icon">◉</div>
+      <div>
+        <div class="gc-brand">Loon Outdoors</div>
+        <div class="gc-title">Deep Soft Weight</div>
+        <div class="gc-desc">미세 수정 조절용 텅스텐 점토 웨이트. 정밀한 수심 조절을 위한 필수 소품.</div>
+      </div>
+    </a>
+
+    <a href="reviews/251224-TMC_Prismatic_Thread.html" class="gc"
+       data-cat="accessory" data-kw="tmc prismatic thread tying">
+      <div class="gc-icon">◎</div>
+      <div>
+        <div class="gc-brand">TMC</div>
+        <div class="gc-title">Prismatic Thread</div>
+        <div class="gc-desc">빛 반사 특성이 뛰어난 특수 타잉 스레드.</div>
+      </div>
+    </a>
+
+    <a href="reviews/flyline_dressing_guide.html" class="gc"
+       data-cat="accessory" data-kw="sinking flyline dressing lip balm 303 aerospace guide">
+      <div class="gc-icon">▣</div>
+      <div>
+        <div class="gc-brand">현장 가이드 &nbsp;·&nbsp; <span style="color:var(--gold);font-style:normal">NEW</span></div>
+        <div class="gc-title">싱킹 플라이라인 드레싱 완전정복</div>
+        <div class="gc-desc">립밤부터 303 Aerospace까지 — 현장에서 바로 쓸 수 있는 드레싱 솔루션.</div>
+      </div>
+    </a>
+
+  </div>
+
+  </div><!-- /theme-acc -->
+
+  <!-- FIELD GUIDES & MANUALS -->
+  <div class="theme-guide">
+  <div class="sec-divider" data-section="guide">
+    <span class="sec-label">Field Guides &amp; Manuals</span>
+    <div class="sec-line"></div>
+    <span class="sec-count">5 docs</span>
+  </div>
+  <div class="guide-grid" id="grid-guide">
+
+    <a href="reviews/sink25cold_manual_v2.html" class="gc"
+       data-cat="guide" data-kw="sink25 cold manual v2 sa sonar bottom sinking">
+      <div class="gc-icon">▤</div>
+      <div>
+        <div class="gc-brand">SA SONAR &nbsp;·&nbsp; <span style="color:#185a9a;font-style:normal">v2</span> <span style="color:var(--gold);font-style:normal">NEW</span></div>
+        <div class="gc-title">Sink 25 Cold Manual</div>
+        <div class="gc-desc">한터지 바닥권 풀싱킹 체계 서브 라인으로 재정의. 10–12m 단거리 투입 프로토콜.</div>
+      </div>
+    </a>
+
+    <a href="reviews/260108_sonar_sink_manual.html" class="gc"
+       data-cat="guide" data-kw="sa sonar sink manual korean 한글">
+      <div class="gc-icon">📘</div>
+      <div>
+        <div class="gc-brand">SA SONAR &nbsp;·&nbsp; KR</div>
+        <div class="gc-title">Sonar Sink Manual (한글)</div>
+        <div class="gc-desc">SA SONAR 싱크 라인 매뉴얼 한글 번역본.</div>
+      </div>
+    </a>
+
+    <a href="reviews/260108_sonar_sink_manual_EN.html" class="gc"
+       data-cat="guide" data-kw="sa sonar sink manual english en">
+      <div class="gc-icon">📗</div>
+      <div>
+        <div class="gc-brand">SA SONAR &nbsp;·&nbsp; EN</div>
+        <div class="gc-title">Sonar Sink Manual (English)</div>
+        <div class="gc-desc">SA SONAR 싱크 라인 매뉴얼 영문 원본.</div>
+      </div>
+    </a>
+
+    <a href="reviews/260108_sonar_sink_manual.html" class="gc"
+       data-cat="guide" data-kw="sa sonar sink v1 manual">
+      <div class="gc-icon">📙</div>
+      <div>
+        <div class="gc-brand">SA SONAR &nbsp;·&nbsp; v1</div>
+        <div class="gc-title">Sink 25 Cold Manual (v1)</div>
+        <div class="gc-desc">초기 버전 매뉴얼. v2 비교 참고용.</div>
+      </div>
+    </a>
+
+  </div>
+
+  </div><!-- /theme-guide -->
+
+  <!-- FOOTER -->
+  <footer class="mg-footer">
+    <div class="footer-quote">송어의 운명은 내가 결정한다</div>
+    <div class="footer-meta">
+      <a href="https://github.com/CADDIS-GR/fishing-gear" target="_blank">CADDIS-GR GitHub</a>
+      &nbsp;·&nbsp; Vol.04 &nbsp;·&nbsp; May 2026
+    </div>
+  </footer>
+
+  <script>
+    function filterAll() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const allItems = document.querySelectorAll('[data-kw]');
+      let visible = 0;
+
+      allItems.forEach(el => {
+        const text = (el.dataset.kw || '') + ' ' +
+                     (el.querySelector('.cc-title,.gc-title,.hf-title')?.textContent || '') + ' ' +
+                     (el.querySelector('.cc-brand,.gc-brand,.hf-brand')?.textContent || '');
+        const match = q === '' || text.toLowerCase().includes(q);
+        el.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+
+      // hide empty sections
+      ['flyline','rod','accessory','guide'].forEach(sec => {
+        const grid = document.getElementById('grid-' + sec);
+        const divider = document.querySelector(`[data-section="${sec}"]`);
+        if (!grid) return;
+        const any = [...grid.querySelectorAll('[data-kw]')].some(c => c.style.display !== 'none');
+        if (divider) divider.style.display = any ? '' : 'none';
+        grid.style.display = any ? '' : 'none';
+      });
+
+      const el = document.getElementById('searchCount');
+      el.innerHTML = q ? `<b>${visible}</b> 건` : '';
+    }
+  </script>
 </body>
 </html>
