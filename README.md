@@ -23,6 +23,10 @@
 
 ## 📦 리뷰 목록
 
+### Thomas & Thomas
+- **Tech Gloves** 🆕 - UPF 50+ 원단으로 자외선을 물리적으로 차단. 앤티슬립 마이크로파이버 그립 패드, 핑거리스 컷으로 라인 감각 유지. Pull Loop 디테일이 장갑 수명을 지킨다. S/M · 55,000원 ⭐⭐⭐⭐⭐ (미사용 · 언박싱 기준)
+- **Helix 863-4** 🆕 - 처음으로 작정하고 고른 드라이플라이 전용 로드. #3 / 8'6" / Medium Action. T&T 미디엄 계열 빈티지 클래식. RIO Elite Technical Trout WF4F + 6x~7x 플루오로카본 세팅 ⭐⭐⭐⭐⭐
+
 ### SA SONAR
 - **Sonar Titan 3D i/3/5 WF6S** 🆕 - 두 시즌 한터낚시터 바텀 공략 주력 라인. Triple Density · i / Sink 3 / Sink 5. 25카운트에 4m권 도달, 수직 상승 구간 입질 70%+. 트리플 덴시티 직선형 수중 궤적이 핵심 ⭐⭐⭐⭐⭐ (9.2/10)
 - **Stillwater Parabolic Sink WF5S** 🆕 - U형 침강 구조로 바닥 바로 위에 플라이를 띄우는 라인. Sink 3/5/3 · Seamless Density. 싱킹라인 조건에서 Chironomid Larva를 바닥권에 넣을 수 있다는 것만으로도 큰 수확. 하나의 캐스팅으로 전층 통과 → 바닥 탐색 → 수직상승의 다양한 궤적을 만들어낸다 ⭐⭐⭐⭐⭐ (9.2/10)
@@ -30,9 +34,6 @@
 - **Sink Manual (KR)** - SA SONAR 싱크 라인 매뉴얼 (한글) ⭐⭐⭐⭐⭐
 - **Sink Manual (EN)** - SA SONAR 싱크 라인 매뉴얼 (영문) ⭐⭐⭐⭐⭐
 - **STILLWATER CLEAR EMERGER TIP** - 특별한 이머저 전용 라인 소재 ⭐⭐⭐⭐⭐
-
-### Thomas & Thomas
-- **Helix 863-4** 🆕 - 처음으로 작정하고 고른 드라이플라이 전용 로드. #3 / 8'6" / Medium Action. T&T 미디엄 계열 빈티지 클래식. RIO Elite Technical Trout WF4F + 6x~7x 플루오로카본 세팅 ⭐⭐⭐⭐⭐
 
 ### Airflo
 - **Euro Nymph Short 22ft** 🆕 - 한터낚시터 네오스타일 드리프트 채비 테스트. 루어낚시 네오스타일에서 모티브를 얻은 유로님핑 접목 채비. Vision Onki 3100-4 + 롱리더 시스템 ⭐⭐⭐⭐⭐
@@ -67,9 +68,11 @@ fishing-gear/
 ├── index.html          # 메인 페이지
 ├── README.md           # 프로젝트 설명
 ├── images/
-│   └── Helix/          # T&T Helix 863-4 사진
+│   ├── Helix/          # T&T Helix 863-4 사진
+│   └── SunGlove/       # T&T Tech Gloves 사진
 └── reviews/            # 리뷰 HTML 파일들
-    ├── sa-sonar-titan-i3-5-review.html           # 🆕 SA Sonar Titan 3D i/3/5 WF6S
+    ├── tt-tech-gloves-review.html                 # 🆕 T&T Tech Gloves
+    ├── sa-sonar-titan-i3-5-review.html            # 🆕 SA Sonar Titan 3D i/3/5 WF6S
     ├── sa-parabolic-sink-review.html              # 🆕 SA Sonar Stillwater Parabolic Sink WF5S
     ├── TT_Helix_863-4_Review.html                 # 🆕 T&T Helix 863-4
     ├── airflo_euro_nymph_short_review.html        # 🆕 Airflo Euro Nymph Short 22ft
@@ -157,12 +160,24 @@ git push origin main
 
 ## 📊 통계
 
-- **전체 리뷰**: 17개
+- **전체 리뷰**: 18개
 - **브랜드 수**: 7개
 - **평균 평점**: ⭐ 4.9/5.0
 - **최근 업데이트**: 2026년 5월
 
 ## 🌟 최신 리뷰
+
+### T&T Tech Gloves (2026.05) 🆕
+하루 종일 캐스팅하는 손등을 위한 선택. UPF 50+ 원단으로 자외선을 물리적으로 차단하고, 앤티슬립 마이크로파이버 패드가 코르크 그립을 보조한다. 핑거리스 컷으로 라인 감각과 훅셋 반응을 유지하면서, Pull Loop 디테일이 장갑의 수명을 지킨다.
+
+**핵심 특징:**
+- ☀️ **UPF 50+** — 손등 전면 자외선 물리 차단
+- 🤚 **핑거리스 컷** — 4지 끝단 노출로 라인 감각 및 훅셋 반응 유지
+- 🧤 **앤티슬립 마이크로파이버** — 손바닥 그립 패드, 코르크 그립 보완
+- 🔁 **Pull Loop** — 가운데 손가락 끝 탈착용 루프. 젖은 손·선크림 상태에서 봉제선 응력 분산
+- 🏷️ **S/M · 55,000원** — T&T EST. 1969
+
+---
 
 ### SA Sonar Titan 3D i/3/5 WF6S (2026.05) 🆕
 두 시즌 한터낚시터 바텀 공략의 주력 라인. 트리플 덴시티 구조(Intermediate / Sink 3 / Sink 5)가 만들어내는 직선형 수중 자세가 핵심이다. 25카운트에 팁이 4m권에 도달하고, 리트리브 싱킹을 거쳐 착저한 뒤 수직 상승 전환점까지의 구간에서 입질 70%+가 집중된다.
@@ -177,7 +192,7 @@ git push origin main
 ---
 
 ### SA Sonar Stillwater Parabolic Sink WF5S (2026.04) 🆕
-전 수심층을 빠르게 탐색하는 파일럿 기능 위주로 설계된 라인이지만, 느린 8자 리트리브로 운영한다면 전혀 다른 성격의 라인으로 바뀐다. Sink 5의 밸리가 Sink 3의 팁보다 먼저 떨어지면서 U자 형태가 만들어지고, 뒤따르는 플라이가 이 궤적을 그대로 따라 움직이게 된다. 떨어지면서 전층을 통과하고, 바닥을 탐색하고, 다시 수직으로 올라오는 — 하나의 캐스팅으로 다양한 수층 궤적을 만들어내는 라인이다.
+전 수심층을 빠르게 탐색하는 파일럿 기능 위주로 설계된 라인이지만, 느린 8자 리트리브로 운영한다면 전혀 다른 성격의 라인으로 바뀐다. Sink 5의 밸리가 Sink 3의 팁보다 먼저 떨어지면서 U자 형태가 만들어지고, 뒤따르는 플라이가 이 궤적을 그대로 따라 움직이게 된다.
 
 **핵심 특징:**
 - 🔵 **Sink 3/5/3** — 런닝(Sink 3) · 헤드(Sink 5) · 팁(Sink 3) · Seamless Density
